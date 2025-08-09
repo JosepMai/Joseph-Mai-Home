@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8132155216780342409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8665874476352569859}
+  - component: {fileID: 1057234742747548741}
+  - component: {fileID: 5187533391756545604}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8665874476352569859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132155216780342409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.6583114, y: -0.10484159, z: -2.126088}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1057234742747548741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132155216780342409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a6516436378142b4e72536cb02320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalSongTime: 0
+  totalCountdownTime: 0
+  BeatsInSong: 0
+  BeatsCounter: 0
+  score: 0
+  CheckingCountdown: 0
+  Beat1Triggered: 0
+  Beat2Triggered: 0
+  CountdownTime: {fileID: 0}
+  SongTime: {fileID: 0}
+  ScoreText: {fileID: 0}
+  Beat1: {fileID: 0}
+  Beat2: {fileID: 0}
+  ShrinkingRing1: {fileID: 0}
+  ShrinkingRing2: {fileID: 0}
+  InnerCircle1: {fileID: 0}
+  InnerCircle2: {fileID: 0}
+  listOfNotes:
+  - {fileID: 0}
+  - {fileID: 0}
+  numOfNotes: 2
+  key: 49
+--- !u!114 &5187533391756545604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8132155216780342409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cd31aa84c452844abfaed342ead9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Beat1: {fileID: 0}
+  Beat2: {fileID: 0}
+  beatManager: {fileID: 1057234742747548741}
+  noteTimings:
+  - 1
+  - 1.5
+  - 2.3
+  - 4.5
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  notes: []
+  notePrefab:
+  - {fileID: 5732830337712866573, guid: 82a88dc1f56e1194db370c489c114a1d, type: 3}
+  - {fileID: 229945170268149308, guid: 5ff7e6215491e9c43affc0a0959d09aa, type: 3}
+  currentNote: 0
+  CurrentTime: 0
+  note1: {fileID: 5732830337712866573, guid: 82a88dc1f56e1194db370c489c114a1d, type: 3}
