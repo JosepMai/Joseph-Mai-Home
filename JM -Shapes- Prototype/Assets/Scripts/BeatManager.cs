@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class BeatManager : MonoBehaviour
 {
+    //LAST UPDATED ON (AUG 16)
     public float totalSongTime;
     public float totalCountdownTime;
 
@@ -18,17 +19,6 @@ public class BeatManager : MonoBehaviour
     public TMP_Text CountdownTime;
     public TMP_Text SongTime;
     public TMP_Text ScoreText;
-
-    public GameObject Beat1;
-    public GameObject Beat2;
-    public GameObject ShrinkingRing1;
-    public GameObject ShrinkingRing2;
-    public GameObject InnerCircle1;
-    public GameObject InnerCircle2;
-
-    public GameObject[] listOfNotes;
-
-    public int numOfNotes;
     public KeyCode key;
 
     // A reference to the active note
@@ -47,19 +37,14 @@ public class BeatManager : MonoBehaviour
     void Update()
     {
         CountdownTimers();
-
+        ScoreText.text = "Score:" + score.ToString();
     }
     public void CountdownTimers()// Function for the Timers(Countdown, Total Time, and End Time)
     {
-        if (Beat2Triggered == false && Beat1Triggered == false && totalCountdownTime >= 0.1f)
-        {
-            Beat1Triggered = true;
-        }
         if (totalCountdownTime > 0) // If the Countdown Time is greater than 0
         {
             totalCountdownTime -= Time.deltaTime;// Takes a second away each time from the totalcountdown time
             CountdownTime.text = Mathf.Round(totalCountdownTime).ToString();// Sets the countdowntime.text to the countdown time variable.
-                                                                            // Creating a String for it
             CheckingCountdown = true;// Sets the countdown to true
         }
         else // Otherwise the Countdown Time would be 0 

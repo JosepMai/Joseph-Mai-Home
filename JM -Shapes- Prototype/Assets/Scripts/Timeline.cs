@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class Timeline : MonoBehaviour
 {
+    //IN PROGRESS
     public GameObject Beat1;
     public GameObject Beat2;
     public GameObject Slider;
     public BeatManager beatManager;
 
-    public float[] noteTimings = { 5, 6.5f, 7.3f, 9.5f, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 }; // this is in charge of when to spawn the note
-    public float[] sliderTimings = { 0, 0, 0, 0, 0, 0, 0, 2 };
+    public float[] noteTimings; // this is in charge of when to spawn the note
+    public float[] sliderTimings;
     public GameObject[] notes; // this is in charge of the actual notes, it starts empty cause there are none
     public GameObject[] notePrefab;// this is in charge of holding the note prefabs
     public int currentNote;// this is in charge of the current note
     public int hitNote;
-    public GameObject note1;
     // Start is called before the first frame update
     void Start()
     {
-        
         notes = new GameObject[noteTimings.Length];  // Initialize array to the same length
         for (int i = 0; i < notes.Length; i++)
         {
@@ -54,6 +53,18 @@ public class Timeline : MonoBehaviour
         {
             MissedNote();
         }
+
+
+
+
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)")
+        {
+            hitNote++;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)")
+        {
+            hitNote++;
+        }
     }
 
     public void CheckHit()
@@ -72,12 +83,24 @@ public class Timeline : MonoBehaviour
 
     public void SpawnNext() // Spawns the next note
     {
+        float randomZRotation = Random.Range(0f, 360f);
+        Quaternion randomRotation = Quaternion.Euler(0f, 0f, randomZRotation);
         // We spawn the note, in a random place with a random key associated with it, and we add it to the Notes
-        int randomNote = Random.Range(0, notePrefab.Length);
-        GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
-        nextNote.GetComponent<RandomPosition>().RandomizingPosition();
-        notes[currentNote] = nextNote;
-        currentNote++;
+        if (sliderTimings[currentNote] == 0)
+        {
+            int randomNote = Random.Range(0, notePrefab.Length);
+            GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
+            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            notes[currentNote] = nextNote;
+            currentNote++;
+        }
+        else
+        {
+            GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
+            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            notes[currentNote] = nextNote;
+            currentNote++;
+        }
     
     }
     // Update is called once per frame
@@ -90,6 +113,5 @@ public class Timeline : MonoBehaviour
         {
             SpawnNext();
         }
-
     }
 }

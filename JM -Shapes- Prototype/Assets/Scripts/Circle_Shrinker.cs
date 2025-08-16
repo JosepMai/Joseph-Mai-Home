@@ -4,32 +4,16 @@ using UnityEngine;
 using TMPro;
 public class Circle_Shrinker : MonoBehaviour
 {
-    //Speed for the Shrinking Circle
+    //LAST UPDATED ON(AUG 16)
     public float BeatSpeed = 0.005f; //Adjust this value to control the shrinking speed
-    public float randX;
-    public float randY;
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
-    //--------------------------------
-    //Objects that are being shrunken
-    public GameObject gamemanager;
-    public GameObject Beat1;
-    public GameObject Beat2;
-    public GameObject ShrinkingRing1;
-    public GameObject ShrinkingRing2;
-    public GameObject Slider1;
-    //--------------------------------
-    //Possible results of the Radius
+
     public bool Miss;
     public bool Bad;
     public bool Ok;
     public bool Good;
     public bool Perfect;
-    //--------------------------------
-    //Variables for the circle sliders
-    public bool FreezeTheRing;
-    public bool ButtonsAreNotPressed;
-    public bool SliderIsMoving;
-    public int hitNote;
+
 
 
     void Start()
@@ -70,28 +54,27 @@ public class Circle_Shrinker : MonoBehaviour
         Perfect = transform.localScale.x >= 0.30f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
         if(Bad)
         {
-            FindAnyObjectByType<BeatManager>().score += 5;
+            FindAnyObjectByType<BeatManager>().score += 1;
         }
         else if (Ok)
         {
-            FindAnyObjectByType<BeatManager>().score += 10;
+            FindAnyObjectByType<BeatManager>().score += 3;
         }
         else if (Good)
         {
-            FindAnyObjectByType<BeatManager>().score += 15;
+            FindAnyObjectByType<BeatManager>().score += 4;
         }
         else if (Perfect)
         {
-            FindAnyObjectByType<BeatManager>().score += 20;
+            FindAnyObjectByType<BeatManager>().score += 5;
         }
     }
 
     public void Circle_Missed()
     {
-        Miss = transform.localScale.x <= 0.25f; //Miss is when the radius/ring of circle is less than 0.25f
+        Miss = transform.localScale.x < 0.3f; //Miss is when the radius/ring of circle is less than 0.25f
         if (Miss)
         {
-            FindAnyObjectByType<BeatManager>().score -= 10;
             FindAnyObjectByType<Timeline>().hitNote++;
             Destroy(transform.parent.gameObject.transform.parent.gameObject);
         }
