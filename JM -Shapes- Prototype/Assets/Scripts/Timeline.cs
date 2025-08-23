@@ -10,12 +10,15 @@ public class Timeline : MonoBehaviour
     public GameObject Slider;
     public BeatManager beatManager;
 
+    public bool CheckingIfKey3IsPressed;
+
     public float[] noteTimings; // this is in charge of when to spawn the note
     public float[] sliderTimings;
     public GameObject[] notes; // this is in charge of the actual notes, it starts empty cause there are none
     public GameObject[] notePrefab;// this is in charge of holding the note prefabs
     public int currentNote;// this is in charge of the current note
     public int hitNote;
+    public bool holdingSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,42 +36,56 @@ public class Timeline : MonoBehaviour
         // When we press a key, we check to see if it aligns with the current note and current time
         if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
-
+            Debug.Log("1");
             CheckHit();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
-
+            Debug.Log("12");
             MissedNote();
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat2.name + "(Clone)")
         {
             // add score, get rid of note, etc
+            Debug.Log("13");
             CheckHit();
-
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat2.name + "(Clone)") // u hit the wrong note
         {
+            Debug.Log("14");
             MissedNote();
         }
 
-
-
-
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)")
+        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote)
         {
-            hitNote++;
+            Debug.Log("15");
+            HitSlider();
         }
+
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)")
         {
+            Debug.Log("16");
             hitNote++;
         }
     }
 
+    public void HitSlider()
+    {
+        holdingSlider = true;
+        Debug.Log(hitNote);
+        notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();
+    }
+
+    //public void ReleasedSlider()
+    //{
+    //    notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();
+    //}
+
     public void CheckHit()
     {
+        Debug.Log("check Hit");
         notes[hitNote].GetComponentInChildren<Circle_Shrinker>().CheckingRadiusOfCircle();
         Destroy(notes[hitNote]);
         hitNote++;
@@ -76,6 +93,7 @@ public class Timeline : MonoBehaviour
 
     public void MissedNote()
     {
+        Debug.Log("Missed Note Hit");
         notes[hitNote].GetComponentInChildren<Circle_Shrinker>().MissedNote();
         Destroy(notes[hitNote]);
         hitNote++;
@@ -98,14 +116,27 @@ public class Timeline : MonoBehaviour
         {
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            nextNote.name = nextNote.name + currentNote;
             notes[currentNote] = nextNote;
             currentNote++;
         }
     
     }
+
+    public void SliderRemove()
+    {
+        holdingSlider = false;
+        notes[hitNote].GetComponentInChildren<SliderMove>().ExitSlider();
+        hitNote++;
+    }
     // Update is called once per frame
     void Update()
     {
+        if(holdingSlider && Input.GetKeyUp(KeyCode.Alpha3))
+        {
+            SliderRemove();
+
+        }
         HitNote();
         if (currentNote >= noteTimings.Length)
             return;

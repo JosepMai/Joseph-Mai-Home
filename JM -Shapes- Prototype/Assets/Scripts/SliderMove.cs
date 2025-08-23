@@ -13,36 +13,44 @@ public class SliderMove : MonoBehaviour
     public GameObject FinalPoint;
     public GameObject gamemanager;
     public GameObject Slider;
-
+    public Timeline tl;
     public bool CheckingIfKey3IsPressed;
     void Start()
     {
+        tl = FindAnyObjectByType<Timeline>();
         CheckingIfKey3IsPressed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckingIfSliderIsMoving();
+        DestroySliderWhenReleased();
     }
 
-    public void CheckingIfSliderIsMoving()
+    public void DestroySliderWhenReleased()
     {
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            transform.position = Vector3.MoveTowards(transform.position, end.position, 0.02f); // 0.01f is your slider speed
-            // FindAnyObjectByType<Timeline>().sliderTimings[FindAnyObjectByType<Timeline>().hitNote]
-            CheckingIfKey3IsPressed = true;
-        }
-        else if (CheckingIfKey3IsPressed == true && !Input.GetKey(KeyCode.Alpha3))
-        {
-            Destroy(Slider);
-            CheckingIfKey3IsPressed = false;
-        }
+        //if (CheckingIfKey3IsPressed == true && !Input.GetKey(KeyCode.Alpha3))
+        //{
+        //    Destroy(Slider);
+        //    CheckingIfKey3IsPressed = false;
+        //}
+    }
+    public void MovingSlider()
+    {
+        //Debug.Log("Inside MovingSlider");
+        transform.position = Vector3.MoveTowards(transform.position, end.position, 0.02f);
+        CheckingIfKey3IsPressed = true;
+    }
+    public void ExitSlider()
+    {
+        Debug.Log("exit slider");
+        //tl.hitNote++;
+        Destroy(transform.root.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("test");
         if (collision.gameObject.tag == "Point1")
         {
             Point1.GetComponent<Renderer>().material.color = new Color(0.3f, 0.3f, 1f);
@@ -66,7 +74,8 @@ public class SliderMove : MonoBehaviour
         {
             FindAnyObjectByType<BeatManager>().score += 3;
             AddPoints();
-            Destroy(transform.parent.gameObject);
+            ExitSlider();
+         
         }
     }
 
