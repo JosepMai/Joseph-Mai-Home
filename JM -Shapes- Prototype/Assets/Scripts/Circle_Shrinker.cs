@@ -8,11 +8,11 @@ public class Circle_Shrinker : MonoBehaviour
     public float BeatSpeed = 0.005f; //Adjust this value to control the shrinking speed
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
 
-    public bool Miss;
-    public bool Bad;
-    public bool Ok;
-    public bool Good;
-    public bool Perfect;
+    public bool miss;
+    public bool bad;
+    public bool ok;
+    public bool good;
+    public bool perfect;
 
 
 
@@ -48,35 +48,35 @@ public class Circle_Shrinker : MonoBehaviour
     }
     public void CheckingRadiusOfCircle()
     {       
-        Bad = transform.localScale.x >= 0.55f && transform.localScale.x <= 0.9f; //Bad is when the radius/ring of the circle is greater than 0.55f
-        Ok = transform.localScale.x >= 0.5f && transform.localScale.x <= 0.55f; //Ok is when the radius/ring of the circle is greater than 0.5f and less than 0.55f
-        Good = transform.localScale.x >= 0.45f && transform.localScale.x <= 0.5f; //Good is when the radius/ring of the circle is greater than 0.45f and less than 0.5f
-        Perfect = transform.localScale.x >= 0.30f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
-        if(Bad)
+        bad = transform.localScale.x >= 0.55f && transform.localScale.x <= 0.9f; //Bad is when the radius/ring of the circle is greater than 0.55f
+        ok = transform.localScale.x >= 0.5f && transform.localScale.x <= 0.55f; //Ok is when the radius/ring of the circle is greater than 0.5f and less than 0.55f
+        good = transform.localScale.x >= 0.45f && transform.localScale.x <= 0.5f; //Good is when the radius/ring of the circle is greater than 0.45f and less than 0.5f
+        perfect = transform.localScale.x >= 0.30f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
+        if(bad)
+        {
+            FindAnyObjectByType<BeatManager>().score += 0;
+        }
+        else if (ok)
         {
             FindAnyObjectByType<BeatManager>().score += 1;
         }
-        else if (Ok)
+        else if (good)
+        {
+            FindAnyObjectByType<BeatManager>().score += 2;
+        }
+        else if (perfect)
         {
             FindAnyObjectByType<BeatManager>().score += 3;
-        }
-        else if (Good)
-        {
-            FindAnyObjectByType<BeatManager>().score += 4;
-        }
-        else if (Perfect)
-        {
-            FindAnyObjectByType<BeatManager>().score += 5;
         }
     }
 
     public void Circle_Missed()
     {
-        Miss = transform.localScale.x < 0.3f; //Miss is when the radius/ring of circle is less than 0.25f
-        if (Miss)
+        miss = transform.localScale.x < 0.3f; //Miss is when the radius/ring of circle is less than 0.25f
+        if (miss)
         {
-            FindAnyObjectByType<Timeline>().hitNote++;
-            Destroy(transform.parent.gameObject.transform.parent.gameObject);
+            FindAnyObjectByType<Timeline>().hitNote++; //Finds timeline and increases hitNote by 1
+            Destroy(transform.parent.gameObject.transform.parent.gameObject);//Destroys the biggest parent
         }
 
         if (transform.localScale.x <= 0.5f)

@@ -18,9 +18,12 @@ public class Slider_Shrinker : MonoBehaviour
 
     public Timeline tl;
 
+    //PlayerInputManager playerInputManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        //playerInputManager = FindObjectOfType<PlayerInputManager>();
         tl = FindAnyObjectByType<Timeline>();
         originalScale = transform.localScale; //Store the original scale
     }
@@ -37,7 +40,7 @@ public class Slider_Shrinker : MonoBehaviour
     {
         if (transform.localScale.x > 0.20f && transform.localScale.y > 0.20f ) //Check if the object is bigger than the scale 0.2 for x and y
         {
-            if (FreezeTheRing == false)
+            if (FreezeTheRing == false)//If freeze the ring = false
             {
                 transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0); //Reduce the scale in both X and Y directions
             }
@@ -45,36 +48,34 @@ public class Slider_Shrinker : MonoBehaviour
     }
     public void CheckingSliderShrink()
     {
-        if(Input.GetKeyUp(KeyCode.Alpha3) && tl.sliderTimings[tl.hitNote] > 0 && tl.notes[tl.hitNote].name == gameObject.name)
+        if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
-            Debug.Log("slider shrinker 1");
-            FindAnyObjectByType<Timeline>().hitNote++;
+            if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early
+            {
+                tl.hitNote++;
+                Destroy(transform.root.gameObject);
+            }
+            else if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Too early
+            {
+                FreezeTheRing = true;
+                badHit = true;
+            }
+            else if (transform.localScale.x > 0.65f && transform.localScale.x <= 0.75f) //Okay
+            {
+                FreezeTheRing = true;
+                goodHit = true;
+            }
+            else if (transform.localScale.x > 0.5f && transform.localScale.x <= 0.65f) //Perfect
+            {
+                FreezeTheRing = true;
+                perfectHit = true;
+            }
         }
-        if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.name && transform.localScale.x > 0.75f && transform.localScale.x <= 1f) // way too early
+      
+        if (transform.localScale.x <= 0.3f)//If the ring is smaller than 0.3f
         {
-            Debug.Log("slider shrinker 2");
-            FindAnyObjectByType<Timeline>().hitNote++;
-            Destroy(transform.root.gameObject);
-        }
-        else if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.name && transform.localScale.x > 0.75f && transform.localScale.x <= 1f) // Too early
-        {
-            FreezeTheRing = true;
-            badHit = true;
-        }
-        else if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.name && transform.localScale.x > 0.65f && transform.localScale.x <= 0.75f) // Okay
-        {
-            FreezeTheRing = true;
-            goodHit = true;
-        }
-        else if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.name && transform.localScale.x > 0.5f && transform.localScale.x <= 0.65f) // Perfect
-        {
-            FreezeTheRing = true;
-            perfectHit = true;
-        }
-        else if (transform.localScale.x <= 0.3f && tl.notes[tl.hitNote].name == gameObject.name)
-        {
-            tl.SliderRemove();
-            Destroy(transform.root.gameObject);
+            tl.SliderRemove();//Calls Slider Remove
+            Destroy(transform.root.gameObject);//Destroys the root of the gameobject
         }
     }
 }

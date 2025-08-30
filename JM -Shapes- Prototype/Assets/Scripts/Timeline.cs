@@ -10,7 +10,7 @@ public class Timeline : MonoBehaviour
     public GameObject Slider;
     public BeatManager beatManager;
 
-    public bool CheckingIfKey3IsPressed;
+    public bool checkingIfKey3IsPressed;
 
     public float[] noteTimings; // this is in charge of when to spawn the note
     public float[] sliderTimings;
@@ -19,6 +19,7 @@ public class Timeline : MonoBehaviour
     public int currentNote;// this is in charge of the current note
     public int hitNote;
     public bool holdingSlider;
+    public bool reachedEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,56 +37,43 @@ public class Timeline : MonoBehaviour
         // When we press a key, we check to see if it aligns with the current note and current time
         if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
-            Debug.Log("1");
             CheckHit();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
-            Debug.Log("12");
             MissedNote();
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat2.name + "(Clone)")
         {
             // add score, get rid of note, etc
-            Debug.Log("13");
             CheckHit();
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat2.name + "(Clone)") // u hit the wrong note
         {
-            Debug.Log("14");
             MissedNote();
         }
 
-        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote)
+        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false)
         {
-            Debug.Log("15");
-            HitSlider();
+            HitSlider(); // This checks the initial press for sliders
         }
 
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)")
         {
-            Debug.Log("16");
             hitNote++;
         }
     }
 
-    public void HitSlider()
+    public void HitSlider() // This checks the initial press for sliders
     {
-        holdingSlider = true;
-        Debug.Log(hitNote);
-        notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();
+        holdingSlider = true;//Sets holdingSlider to true
+        notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();//Calls Moving Slider in SliderMove
     }
-
-    //public void ReleasedSlider()
-    //{
-    //    notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();
-    //}
 
     public void CheckHit()
     {
-        Debug.Log("check Hit");
         notes[hitNote].GetComponentInChildren<Circle_Shrinker>().CheckingRadiusOfCircle();
         Destroy(notes[hitNote]);
         hitNote++;
@@ -93,7 +81,6 @@ public class Timeline : MonoBehaviour
 
     public void MissedNote()
     {
-        Debug.Log("Missed Note Hit");
         notes[hitNote].GetComponentInChildren<Circle_Shrinker>().MissedNote();
         Destroy(notes[hitNote]);
         hitNote++;
@@ -109,6 +96,7 @@ public class Timeline : MonoBehaviour
             int randomNote = Random.Range(0, notePrefab.Length);
             GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            nextNote.GetComponent<RandomPosition>().circle.color = Color.green;
             notes[currentNote] = nextNote;
             currentNote++;
         }
@@ -116,26 +104,29 @@ public class Timeline : MonoBehaviour
         {
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            nextNote.GetComponent<RandomPosition>().circle.color = Color.green;
             nextNote.name = nextNote.name + currentNote;
             notes[currentNote] = nextNote;
             currentNote++;
         }
-    
     }
 
     public void SliderRemove()
     {
         holdingSlider = false;
         notes[hitNote].GetComponentInChildren<SliderMove>().ExitSlider();
-        hitNote++;
     }
     // Update is called once per frame
     void Update()
     {
-        if(holdingSlider && Input.GetKeyUp(KeyCode.Alpha3))
+        if (Input.GetKeyUp(KeyCode.Alpha3) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
+            reachedEnd = false;
             SliderRemove();
-
+        }
+        else if (Input.GetKeyUp(KeyCode.Alpha3) && !holdingSlider)//If it gets key 3 and holdingSlider = false
+        {
+            reachedEnd = false;
         }
         HitNote();
         if (currentNote >= noteTimings.Length)

@@ -6,7 +6,7 @@ public class RandomPosition : MonoBehaviour
 {
     public float randY;
     public float randX;
-
+    public SpriteRenderer circle;
     public GameObject gameManager;
 
     public KeyCode key;

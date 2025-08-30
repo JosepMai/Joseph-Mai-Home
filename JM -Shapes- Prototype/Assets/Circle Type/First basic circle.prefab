@@ -135,9 +135,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randY: 0
   randX: 0
+  circle: {fileID: 3012514597980763342}
   gameManager: {fileID: 8132155216780342409, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
-  Beat1: {fileID: 5732830337712866573}
-  Beat2: {fileID: 0}
   key: 49
 --- !u!212 &6162480632770603239
 SpriteRenderer:
