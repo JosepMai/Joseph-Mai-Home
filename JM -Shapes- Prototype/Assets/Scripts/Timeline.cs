@@ -8,12 +8,17 @@ public class Timeline : MonoBehaviour
     public GameObject Beat1;
     public GameObject Beat2;
     public GameObject Slider;
+    public GameObject ShortSlider;
     public BeatManager beatManager;
 
     public bool checkingIfKey3IsPressed;
 
     public float[] noteTimings; // this is in charge of when to spawn the note
     public float[] sliderTimings;
+    public float[] stack;
+    public bool[] stackStart;
+    public Vector3 stackPos;
+    public GameObject stackNote;
     public GameObject[] notes; // this is in charge of the actual notes, it starts empty cause there are none
     public GameObject[] notePrefab;// this is in charge of holding the note prefabs
     public int currentNote;// this is in charge of the current note
@@ -55,15 +60,15 @@ public class Timeline : MonoBehaviour
             MissedNote();
         }
 
-        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false)
+        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
         {
             HitSlider(); // This checks the initial press for sliders
         }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)")
-        {
-            hitNote++;
-        }
+        //else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha2) && notes//[hitNote].name == ShortSlider.name + "(Clone)")
+        //{
+            //hitNote++;
+        //}
     }
 
     public void HitSlider() // This checks the initial press for sliders
@@ -91,20 +96,49 @@ public class Timeline : MonoBehaviour
         float randomZRotation = Random.Range(0f, 360f);
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, randomZRotation);
         // We spawn the note, in a random place with a random key associated with it, and we add it to the Notes
-        if (sliderTimings[currentNote] == 0)
+        if (sliderTimings[currentNote] == 0) // Regular notes
         {
-            int randomNote = Random.Range(0, notePrefab.Length);
-            GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
-            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
-            nextNote.GetComponent<RandomPosition>().circle.color = Color.green;
-            notes[currentNote] = nextNote;
+            if(stack[currentNote] > 0 && stackStart[currentNote])
+            {
+                Debug.Log("test1");
+                int randomNote = Random.Range(0, notePrefab.Length);// Randomize beat 1 or 2
+                stackNote = notePrefab[randomNote]; // Store randomly picked one into stackNote which is public and can be reused
+                GameObject nextNote = Instantiate(stackNote, transform.position, Quaternion.identity);
+                nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+                stackPos = nextNote.transform.position; // Stores the randomly set position into stackPos which is public and can be reused
+                stack[currentNote + 1] = stack[currentNote] - 1;
+                notes[currentNote] = nextNote;
+            }
+            else if (stack[currentNote] > 0 && !stackStart[currentNote])
+            {
+                Debug.Log("test2");
+
+                GameObject nextNote = Instantiate(stackNote, stackPos, Quaternion.identity);
+                stack[currentNote + 1] = stack[currentNote] - 1;
+                notes[currentNote] = nextNote;
+            }
+            else
+            {
+                Debug.Log("test3");
+                int randomNote = Random.Range(0, notePrefab.Length);
+                GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
+                nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+                notes[currentNote] = nextNote;
+            }
             currentNote++;
         }
-        else
+        else if (sliderTimings[currentNote] == 1) // Slider
         {
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
-            nextNote.GetComponent<RandomPosition>().circle.color = Color.green;
+            nextNote.name = nextNote.name + currentNote;
+            notes[currentNote] = nextNote;
+            currentNote++;
+        }
+        else // Short Slider
+        {
+            GameObject nextNote = Instantiate(ShortSlider, transform.position, randomRotation);
+            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
             nextNote.name = nextNote.name + currentNote;
             notes[currentNote] = nextNote;
             currentNote++;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    public bool threeKeyPressed = false;
+    //public bool threeKeyPressed = false;
 
 
     // Start is called before the first frame update

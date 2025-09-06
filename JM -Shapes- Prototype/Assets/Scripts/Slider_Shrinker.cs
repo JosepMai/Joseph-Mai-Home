@@ -32,8 +32,12 @@ public class Slider_Shrinker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SliderShrink();
         CheckingSliderShrink();
+    }
+
+    private void FixedUpdate()
+    {
+        SliderShrink();
     }
 
     public void SliderShrink()
