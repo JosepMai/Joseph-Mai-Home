@@ -100,7 +100,6 @@ public class Timeline : MonoBehaviour
         {
             if(stack[currentNote] > 0 && stackStart[currentNote])
             {
-                Debug.Log("test1");
                 int randomNote = Random.Range(0, notePrefab.Length);// Randomize beat 1 or 2
                 stackNote = notePrefab[randomNote]; // Store randomly picked one into stackNote which is public and can be reused
                 GameObject nextNote = Instantiate(stackNote, transform.position, Quaternion.identity);
@@ -111,15 +110,12 @@ public class Timeline : MonoBehaviour
             }
             else if (stack[currentNote] > 0 && !stackStart[currentNote])
             {
-                Debug.Log("test2");
-
                 GameObject nextNote = Instantiate(stackNote, stackPos, Quaternion.identity);
                 stack[currentNote + 1] = stack[currentNote] - 1;
                 notes[currentNote] = nextNote;
             }
             else
             {
-                Debug.Log("test3");
                 int randomNote = Random.Range(0, notePrefab.Length);
                 GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
                 nextNote.GetComponent<RandomPosition>().RandomizingPosition();

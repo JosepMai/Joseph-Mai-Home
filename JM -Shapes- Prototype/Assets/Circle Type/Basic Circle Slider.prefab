@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43eaee3aa025f7d4297d99a1c80c0d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeatSpeed: 0.006
+  BeatSpeed: 0.017
   Slider: {fileID: 7204093668605306565}
   FreezeTheRing: 0
   miss: 0
