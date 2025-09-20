@@ -27,9 +27,9 @@ public class BeatManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        BeatsInSong = 264; // Creates a timer for amount of beats 
+        BeatsInSong = 217; // Creates a timer for amount of beats 
         totalSongTime = BeatsInSong; //sets the total time to amount of beats in the song
-        totalCountdownTime = 3f;// Creates a countdown Timer of 3;
+        totalCountdownTime = 7f;// Creates a countdown Timer of 3;
         BeatsInSong = BeatsCounter;
     }
 

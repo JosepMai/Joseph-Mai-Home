@@ -53,7 +53,7 @@ public class Circle_Shrinker : MonoBehaviour
         bad = transform.localScale.x >= 0.55f && transform.localScale.x <= 0.9f; //Bad is when the radius/ring of the circle is greater than 0.55f
         ok = transform.localScale.x >= 0.5f && transform.localScale.x <= 0.55f; //Ok is when the radius/ring of the circle is greater than 0.5f and less than 0.55f
         good = transform.localScale.x >= 0.45f && transform.localScale.x <= 0.5f; //Good is when the radius/ring of the circle is greater than 0.45f and less than 0.5f
-        perfect = transform.localScale.x >= 0.30f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
+        perfect = transform.localScale.x >= 0.20f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
         if(bad)
         {
             FindAnyObjectByType<BeatManager>().score += 0;
@@ -70,11 +70,12 @@ public class Circle_Shrinker : MonoBehaviour
         {
             FindAnyObjectByType<BeatManager>().score += 3;
         }
+
     }
 
     public void Circle_Missed()
     {
-        miss = transform.localScale.x < 0.3f; //Miss is when the radius/ring of circle is less than 0.25f
+        miss = transform.localScale.x < 0.25f; //Miss is when the radius/ring of circle is less than 0.25f
         if (miss)
         {
             FindAnyObjectByType<Timeline>().hitNote++; //Finds timeline and increases hitNote by 1

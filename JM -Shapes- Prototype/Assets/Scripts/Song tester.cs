@@ -5,6 +5,7 @@ using UnityEngine;
 public class Songtester : MonoBehaviour
 {
     public float songTest;
+    public float placeHolder;
     // Start is called before the first frame update
     void Start()
     {
