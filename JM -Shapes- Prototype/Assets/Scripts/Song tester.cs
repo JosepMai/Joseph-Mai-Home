@@ -6,6 +6,7 @@ public class Songtester : MonoBehaviour
 {
     public float songTest;
     public float placeHolder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,11 @@ public class Songtester : MonoBehaviour
     void Update()
     {
         songTest += Time.deltaTime;
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(songTest);
+            placeHolder = songTest;
+            Debug.Log(placeHolder - 0.3f);
+
         }
     }
 }
