@@ -11,16 +11,6 @@ public class RandomPosition : MonoBehaviour
 
     public KeyCode key;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void RandomizingPosition()//IEnumerator for randomizing position
     {
         randX = Random.Range(-7.6f, 7.7f);//sets randX to a random number on the x-axis

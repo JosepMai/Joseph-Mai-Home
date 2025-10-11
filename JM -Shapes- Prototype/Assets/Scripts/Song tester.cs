@@ -17,11 +17,21 @@ public class Songtester : MonoBehaviour
     void Update()
     {
         songTest += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             placeHolder = songTest;
-            Debug.Log(placeHolder - 0.3f);
+            Debug.Log("Beat: " + (placeHolder - 0.3f));
 
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            placeHolder = songTest;
+            Debug.Log("Short Slider:" + (placeHolder - 0.3f));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            placeHolder = songTest;
+            Debug.Log("Long Slider:" + (placeHolder - 0.3f));
         }
     }
 }

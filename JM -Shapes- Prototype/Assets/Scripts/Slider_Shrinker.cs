@@ -52,7 +52,7 @@ public class Slider_Shrinker : MonoBehaviour
     }
     public void CheckingSliderShrink()
     {
-        if (Input.GetKey(KeyCode.Alpha3) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
+        if (Input.GetKey(KeyCode.Space) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
             if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early
             {

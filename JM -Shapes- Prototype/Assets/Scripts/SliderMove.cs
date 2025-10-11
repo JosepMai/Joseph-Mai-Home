@@ -28,7 +28,7 @@ public class SliderMove : MonoBehaviour
     }
     public void MovingSlider()
     {
-        //Debug.Log("Inside MovingSlider");
+        Debug.Log("Inside MovingSlider");
         transform.position = Vector3.MoveTowards(transform.position, end.position, 0.05f);
         checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
     }

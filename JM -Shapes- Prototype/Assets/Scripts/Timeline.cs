@@ -7,6 +7,7 @@ public class Timeline : MonoBehaviour
     //IN PROGRESS
     public GameObject Beat1;
     public GameObject Beat2;
+    public GameObject Beat3;
     public GameObject Slider;
     public GameObject ShortSlider;
     public BeatManager beatManager;
@@ -44,7 +45,7 @@ public class Timeline : MonoBehaviour
         {
             CheckHit();
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat1.name + "(Clone)")
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat1.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
             MissedNote();
         }
@@ -55,20 +56,26 @@ public class Timeline : MonoBehaviour
             CheckHit();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat2.name + "(Clone)") // u hit the wrong note
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat2.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Beat2.name + "(Clone)") // u hit the wrong note
         {
             MissedNote();
         }
 
-        else if (Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKey(KeyCode.Alpha3) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Beat3.name + "(Clone)")
         {
-            HitSlider(); // This checks the initial press for sliders
+            CheckHit();
         }
 
-        //else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Slider.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha2) && notes//[hitNote].name == ShortSlider.name + "(Clone)")
-        //{
-            //hitNote++;
-        //}
+        else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat3.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat3.name + "(Clone)") // u hit the wrong note
+        {
+            MissedNote();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Space) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKeyDown(KeyCode.Space) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
+        {
+            Debug.Log("slider");
+            HitSlider(); // This checks the initial press for sliders
+        }
     }
 
     public void HitSlider() // This checks the initial press for sliders
@@ -149,12 +156,12 @@ public class Timeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Alpha3) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
+        if (Input.GetKeyUp(KeyCode.Space) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
             reachedEnd = false;
             SliderRemove();
         }
-        else if (Input.GetKeyUp(KeyCode.Alpha3) && !holdingSlider)//If it gets key 3 and holdingSlider = false
+        else if (Input.GetKeyUp(KeyCode.Space) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
             reachedEnd = false;
         }

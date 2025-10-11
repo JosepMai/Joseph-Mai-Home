@@ -3,8 +3,10 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private BeatManager beatManager;
+    public GameObject beatManagers;
     private AudioSource audioSource;
     public AudioClip soundToPlay;
+    public int CountdownTime;
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -13,7 +15,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        PlayEasySong();
+        Invoke("PlayEasySong", CountdownTime);
     }
     public void PlayEasySong()
     {
