@@ -71,9 +71,8 @@ public class Timeline : MonoBehaviour
             MissedNote();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Space) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKeyDown(KeyCode.Space) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
+        else if (Input.GetKey(KeyCode.C) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKey(KeyCode.C) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
         {
-            Debug.Log("slider");
             HitSlider(); // This checks the initial press for sliders
         }
     }
@@ -156,12 +155,12 @@ public class Timeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
+        if (Input.GetKeyUp(KeyCode.C) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
             reachedEnd = false;
             SliderRemove();
         }
-        else if (Input.GetKeyUp(KeyCode.Space) && !holdingSlider)//If it gets key 3 and holdingSlider = false
+        else if (Input.GetKeyUp(KeyCode.C) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
             reachedEnd = false;
         }

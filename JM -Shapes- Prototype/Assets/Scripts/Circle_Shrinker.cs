@@ -5,7 +5,7 @@ using TMPro;
 public class Circle_Shrinker : MonoBehaviour
 {
     //LAST UPDATED ON(AUG 16)
-    public float BeatSpeed = 0.005f; //Adjust this value to control the shrinking speed
+    public float BeatSpeed = 0.0035f; //Adjust this value to control the shrinking speed
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
 
     public bool miss;
@@ -84,7 +84,7 @@ public class Circle_Shrinker : MonoBehaviour
 
         if (transform.localScale.x <= 0.5f)
         {
-            gameObject.GetComponent<Renderer>().material.color = new Color(1f, 0.3f, 0.3f);
+            gameObject.GetComponent<Renderer>().material.color = Color.green;//new Color(1f, 0.3f, 0.3f);
         }
         else if (transform.localScale.x >= 0.5f)
         {

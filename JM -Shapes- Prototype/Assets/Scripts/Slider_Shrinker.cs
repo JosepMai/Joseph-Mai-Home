@@ -44,6 +44,10 @@ public class Slider_Shrinker : MonoBehaviour
     {
         if (transform.localScale.x > 0.20f && transform.localScale.y > 0.20f ) //Check if the object is bigger than the scale 0.2 for x and y
         {
+            if (FreezeTheRing)
+            {
+                Debug.Log(transform.localScale);
+            }
             if (FreezeTheRing == false)//If freeze the ring = false
             {
                 transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0); //Reduce the scale in both X and Y directions
@@ -52,8 +56,10 @@ public class Slider_Shrinker : MonoBehaviour
     }
     public void CheckingSliderShrink()
     {
-        if (Input.GetKey(KeyCode.Space) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
+        if (Input.GetKey(KeyCode.C) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
+
+
             if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early
             {
                 tl.hitNote++;
@@ -73,6 +79,11 @@ public class Slider_Shrinker : MonoBehaviour
             {
                 FreezeTheRing = true;
                 perfectHit = true;
+            }
+            else if (transform.localScale.x > 0.3f && transform.localScale.x <= 0.5f)
+            {
+                FreezeTheRing = true;
+                badHit = true;
             }
         }
       
