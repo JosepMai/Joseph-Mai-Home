@@ -50,7 +50,7 @@ public class Slider_Shrinker : MonoBehaviour
             }
             if (FreezeTheRing == false)//If freeze the ring = false
             {
-                transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0); //Reduce the scale in both X and Y directions
+                transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0) * Time.deltaTime; //Reduce the scale in both X and Y directions
             }
         }
     }

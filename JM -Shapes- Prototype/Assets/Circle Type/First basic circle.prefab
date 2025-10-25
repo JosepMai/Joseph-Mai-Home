@@ -459,6 +459,10 @@ PrefabInstance:
       value: Ring1
       objectReference: {fileID: 0}
     - target: {fileID: 6713155137055333498, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
+      propertyPath: miss
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713155137055333498, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: Beat1
       value: 
       objectReference: {fileID: 5732830337712866573}
@@ -472,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 7204093668605306565, guid: 7455dbfb57257f042bd1b0dd5e53720d, type: 3}
     - target: {fileID: 6713155137055333498, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: BeatSpeed
-      value: 0.02
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 6713155137055333498, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: gamemanager

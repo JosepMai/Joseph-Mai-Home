@@ -9,7 +9,6 @@ public class BeatManager : MonoBehaviour
     public float totalCountdownTime;
 
     public int BeatsInSong;
-    public int BeatsCounter;
     public int score;
 
     public bool CheckingCountdown;
@@ -27,9 +26,6 @@ public class BeatManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        BeatsInSong = 210; // Creates a timer for amount of beats 
-        totalSongTime = BeatsInSong; //sets the total time to amount of beats in the song
-        BeatsInSong = BeatsCounter;
     }
 
     // Update is called once per frame

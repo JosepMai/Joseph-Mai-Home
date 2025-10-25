@@ -155,19 +155,22 @@ public class Timeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.C) && holdingSlider /*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
+        if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
-            reachedEnd = false;
             SliderRemove();
+            reachedEnd = false;
+
         }
         else if (Input.GetKeyUp(KeyCode.C) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
             reachedEnd = false;
+            SliderRemove();
         }
         HitNote();
         if (currentNote >= noteTimings.Length)
             return;
-        if (Time.time >= noteTimings[currentNote] - 1 && Time.time <= noteTimings[currentNote] - 1 + 0.1f) // When its the right timing, we need to spawn the note
+        Debug.Log(Time.time);
+        if (Time.time >= noteTimings[currentNote] - 1 && Time.time <= noteTimings[currentNote] - 1 + 0.15f) // When its the right timing, we need to spawn the note
         {
             SpawnNext();
         }

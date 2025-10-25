@@ -20,18 +20,18 @@ public class Songtester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             placeHolder = songTest;
-            Debug.Log("Beat: " + (placeHolder - 0.3f));
+            Debug.Log("Beat: " + (placeHolder - 0.3f + 1));
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             placeHolder = songTest;
-            Debug.Log("Short Slider:" + (placeHolder - 0.3f));
+            Debug.Log("Short Slider:" + (placeHolder - 0.3f + 1));
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             placeHolder = songTest;
-            Debug.Log("Long Slider:" + (placeHolder - 0.3f));
+            Debug.Log("Long Slider:" + (placeHolder - 0.3f + 1));
         }
     }
 }

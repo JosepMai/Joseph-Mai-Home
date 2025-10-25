@@ -1336,6 +1336,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 98185087}
     - target: {fileID: 1057234742747548741, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+      propertyPath: BeatsInSong
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057234742747548741, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
       propertyPath: InnerCircle1
       value: 
       objectReference: {fileID: 832597460}
@@ -1347,6 +1351,10 @@ PrefabInstance:
       propertyPath: CountdownTime
       value: 
       objectReference: {fileID: 1277973699}
+    - target: {fileID: 1057234742747548741, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+      propertyPath: totalSongTime
+      value: 95
+      objectReference: {fileID: 0}
     - target: {fileID: 1057234742747548741, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
       propertyPath: Beat1Triggered
       value: 0

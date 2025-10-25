@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 7204093668605306565, guid: 7455dbfb57257f042bd1b0dd5e53720d, type: 3}
     - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
       propertyPath: BeatSpeed
-      value: 0.02
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
       propertyPath: gamemanager
