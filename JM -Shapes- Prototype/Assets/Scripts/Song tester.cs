@@ -10,7 +10,7 @@ public class Songtester : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -20,18 +20,29 @@ public class Songtester : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             placeHolder = songTest;
-            Debug.Log("Beat: " + (placeHolder - 0.3f + 1));
+            Debug.Log("Beat: " + (placeHolder - 0.3f + 0.6));
 
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             placeHolder = songTest;
-            Debug.Log("Short Slider:" + (placeHolder - 0.3f + 1));
+            Debug.Log("Short Slider:" + (placeHolder - 0.3f + 0.6));
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             placeHolder = songTest;
-            Debug.Log("Long Slider:" + (placeHolder - 0.3f + 1));
+            Debug.Log("Long Slider:" + (placeHolder - 0.3f + 0.6));
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            placeHolder = songTest;
+            Debug.Log("StackA:" + (placeHolder - 0.3f + 0.6));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            placeHolder = songTest;
+            Debug.Log("StackB:" + (placeHolder - 0.3f + 0.6));
         }
     }
 }

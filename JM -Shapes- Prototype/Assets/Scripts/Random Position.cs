@@ -8,6 +8,7 @@ public class RandomPosition : MonoBehaviour
     public float randX;
     public SpriteRenderer circle;
     public GameObject gameManager;
+    public SliderMove sliderSpeedRef;
 
     public KeyCode key;
 

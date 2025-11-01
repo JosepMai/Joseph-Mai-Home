@@ -1230,6 +1230,7 @@ MonoBehaviour:
   Slider: {fileID: 7204093668605306565}
   tl: {fileID: 0}
   checkingIfKey3IsPressed: 0
+  SliderSpeed: 0
 --- !u!58 &8715643355919395935
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2121,6 +2122,7 @@ MonoBehaviour:
   randX: 0
   circle: {fileID: 0}
   gameManager: {fileID: 8132155216780342409, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+  sliderSpeedRef: {fileID: 4510489677339232516}
   key: 32
 --- !u!1 &7991315704627487603
 GameObject:

@@ -15,8 +15,10 @@ public class SliderMove : MonoBehaviour
     public GameObject Slider;
     public Timeline tl;
     public bool checkingIfKey3IsPressed;
+    public float mainsliderSpeed;
     void Start()
     {
+        mainsliderSpeed = 10;
         tl = FindAnyObjectByType<Timeline>();
         checkingIfKey3IsPressed = false;
     }
@@ -28,7 +30,7 @@ public class SliderMove : MonoBehaviour
     }
     public void MovingSlider()
     {
-        transform.position = Vector3.MoveTowards(transform.position, end.position, 12f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, end.position, mainsliderSpeed * Time.deltaTime);
         checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
     }
     public void ExitSlider() // When it reaches the end properly

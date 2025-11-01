@@ -9,7 +9,6 @@ public class Timeline : MonoBehaviour
     public GameObject Beat2;
     public GameObject Beat3;
     public GameObject Slider;
-    public GameObject ShortSlider;
     public BeatManager beatManager;
 
     public bool checkingIfKey3IsPressed;
@@ -18,6 +17,7 @@ public class Timeline : MonoBehaviour
     public float[] sliderTimings;
     public float[] stack;
     public bool[] stackStart;
+    public float[] sliderSpeeds;
     public Vector3 stackPos;
     public GameObject stackNote;
     public GameObject[] notes; // this is in charge of the actual notes, it starts empty cause there are none
@@ -71,7 +71,7 @@ public class Timeline : MonoBehaviour
             MissedNote();
         }
 
-        else if (Input.GetKey(KeyCode.C) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false || Input.GetKey(KeyCode.C) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
+        else if (Input.GetKey(KeyCode.C) && notes[hitNote].name == Slider.name + "(Clone)" + hitNote && reachedEnd == false)
         {
             HitSlider(); // This checks the initial press for sliders
         }
@@ -134,14 +134,7 @@ public class Timeline : MonoBehaviour
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
             nextNote.name = nextNote.name + currentNote;
-            notes[currentNote] = nextNote;
-            currentNote++;
-        }
-        else // Short Slider
-        {
-            GameObject nextNote = Instantiate(ShortSlider, transform.position, randomRotation);
-            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
-            nextNote.name = nextNote.name + currentNote;
+            nextNote.GetComponent<RandomPosition>().sliderSpeedRef.mainsliderSpeed = sliderSpeeds[currentNote];
             notes[currentNote] = nextNote;
             currentNote++;
         }
@@ -169,7 +162,6 @@ public class Timeline : MonoBehaviour
         HitNote();
         if (currentNote >= noteTimings.Length)
             return;
-        Debug.Log(Time.time);
         if (Time.time >= noteTimings[currentNote] - 1 && Time.time <= noteTimings[currentNote] - 1 + 0.15f) // When its the right timing, we need to spawn the note
         {
             SpawnNext();
