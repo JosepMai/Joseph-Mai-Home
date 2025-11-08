@@ -14,11 +14,11 @@ public class Circle_Shrinker : MonoBehaviour
     public bool good;
     public bool perfect;
 
-
-
+    public bool startCircleShrinking;
     void Start()
     {
         originalScale = transform.localScale; //Store the original scale
+        Invoke("CircleCountdown", 0.15f);
     }
 
     void Update()
@@ -27,8 +27,19 @@ public class Circle_Shrinker : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Shrink(); //Calls "Shrink" Function
+        if (startCircleShrinking == true)
+        {
+            Debug.Log("Shrinking");
+            Shrink(); //Calls "Shrink" Function
+        }
     }
+
+    public void CircleCountdown()
+    {
+        Debug.Log("Start Shrink");
+        startCircleShrinking = true;
+    }
+
     public void Shrink()
     {
         if (transform.localScale.x > 0.20f && transform.localScale.y > 0.20f) //Check if the object is already at the minimum size

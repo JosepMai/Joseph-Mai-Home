@@ -134,7 +134,7 @@ public class Timeline : MonoBehaviour
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
             nextNote.name = nextNote.name + currentNote;
-            nextNote.GetComponent<RandomPosition>().sliderSpeedRef.mainsliderSpeed = sliderSpeeds[currentNote];
+            nextNote.GetComponent<RandomPosition>().sliderSpeedRef.sliderDuration = sliderSpeeds[currentNote];
             notes[currentNote] = nextNote;
             currentNote++;
         }
@@ -160,10 +160,13 @@ public class Timeline : MonoBehaviour
             SliderRemove();
         }
         HitNote();
+        Debug.Log("testA");
         if (currentNote >= noteTimings.Length)
             return;
-        if (Time.time >= noteTimings[currentNote] - 1 && Time.time <= noteTimings[currentNote] - 1 + 0.15f) // When its the right timing, we need to spawn the note
+        Debug.Log("testB");
+        if (Time.time >= noteTimings[currentNote] - 1.15 && Time.time <= noteTimings[currentNote] - 1.15 + 0.15f) // When its the right timing, we need to spawn the note
         {
+            Debug.Log("Test1");
             SpawnNext();
         }
     }

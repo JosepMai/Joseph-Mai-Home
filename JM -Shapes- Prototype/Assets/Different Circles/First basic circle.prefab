@@ -137,6 +137,7 @@ MonoBehaviour:
   randX: 0
   circle: {fileID: 3012514597980763342}
   gameManager: {fileID: 8132155216780342409, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+  sliderSpeedRef: {fileID: 0}
   key: 49
 --- !u!212 &6162480632770603239
 SpriteRenderer:
@@ -297,7 +298,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.11518321, g: 0.09202562, b: 0.41509432, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -416,11 +417,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3552226761376017616, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 3552226761376017616, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.016
       objectReference: {fileID: 0}
     - target: {fileID: 3552226761376017616, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -485,6 +486,22 @@ PrefabInstance:
     - target: {fileID: 6713155137055333498, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
       propertyPath: ShrinkingRing2
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557149246535250340, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
+      propertyPath: m_Color.a
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557149246535250340, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557149246535250340, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5009238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557149246535250340, guid: b61ae7b2bd474f746a3ad268d2e37bcc, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2216981
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

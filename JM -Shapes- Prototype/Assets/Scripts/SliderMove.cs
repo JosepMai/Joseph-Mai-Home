@@ -16,9 +16,10 @@ public class SliderMove : MonoBehaviour
     public Timeline tl;
     public bool checkingIfKey3IsPressed;
     public float mainsliderSpeed;
+    public float sliderDuration;
     void Start()
     {
-        mainsliderSpeed = 10;
+        mainsliderSpeed = 10/sliderDuration;
         tl = FindAnyObjectByType<Timeline>();
         checkingIfKey3IsPressed = false;
     }

@@ -10,11 +10,13 @@ public class Slider_Shrinker : MonoBehaviour
 
     public GameObject Slider;
 
+    public bool startShrinking;
     public bool FreezeTheRing = false;
     public bool miss;
     public bool badHit;
     public bool goodHit;
     public bool perfectHit;
+
 
     public Timeline tl;
 
@@ -26,6 +28,7 @@ public class Slider_Shrinker : MonoBehaviour
         //playerInputManager = FindObjectOfType<PlayerInputManager>();
         tl = FindAnyObjectByType<Timeline>();
         originalScale = transform.localScale; //Store the original scale
+        Invoke("ShrinkCountdown", 0.15f);
     }
 
 
@@ -37,17 +40,20 @@ public class Slider_Shrinker : MonoBehaviour
 
     private void FixedUpdate()
     {
-        SliderShrink();
+        if (startShrinking == true)
+        {
+            SliderShrink();
+        }
+    }
+    public void ShrinkCountdown()
+    {
+        startShrinking = true;
     }
 
     public void SliderShrink()
     {
         if (transform.localScale.x > 0.20f && transform.localScale.y > 0.20f ) //Check if the object is bigger than the scale 0.2 for x and y
         {
-            if (FreezeTheRing)
-            {
-                Debug.Log(transform.localScale);
-            }
             if (FreezeTheRing == false)//If freeze the ring = false
             {
                 transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0) * Time.deltaTime; //Reduce the scale in both X and Y directions
