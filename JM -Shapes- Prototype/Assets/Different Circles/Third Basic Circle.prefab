@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1953282325180672741}
   - component: {fileID: 480355633345864120}
   - component: {fileID: 843500380474823409}
+  - component: {fileID: 3771721492471471535}
   m_Layer: 0
   m_Name: Third Basic Circle
   m_TagString: Beat2
@@ -28,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.01, y: -2.2, z: -0.013742864}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.47000003, y: 0.47000003, z: 1.175}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1912289341004258814}
   - {fileID: 9220943500565237744}
@@ -107,6 +108,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3771721492471471535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229945170268149308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b33303bf5fbd4458c4152f9b822953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regularsize: 0.5
+  smallersize: 0.47
+  speed: 0
 --- !u!1 &331808003417514357
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +445,10 @@ PrefabInstance:
       objectReference: {fileID: 7204093668605306565, guid: 7455dbfb57257f042bd1b0dd5e53720d, type: 3}
     - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
       propertyPath: BeatSpeed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: beatSpeed
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}

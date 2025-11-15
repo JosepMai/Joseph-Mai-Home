@@ -5,7 +5,7 @@ using TMPro;
 public class Circle_Shrinker : MonoBehaviour
 {
     //LAST UPDATED ON(AUG 16)
-    public float BeatSpeed = 0.0035f; //Adjust this value to control the shrinking speed
+    public float beatSpeed = 0.0035f; //Adjust this value to control the shrinking speed
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
 
     public bool miss;
@@ -14,6 +14,7 @@ public class Circle_Shrinker : MonoBehaviour
     public bool good;
     public bool perfect;
 
+    public GameObject badText;
     public bool startCircleShrinking;
     void Start()
     {
@@ -29,14 +30,12 @@ public class Circle_Shrinker : MonoBehaviour
     {
         if (startCircleShrinking == true)
         {
-            Debug.Log("Shrinking");
             Shrink(); //Calls "Shrink" Function
         }
     }
 
     public void CircleCountdown()
     {
-        Debug.Log("Start Shrink");
         startCircleShrinking = true;
     }
 
@@ -44,7 +43,7 @@ public class Circle_Shrinker : MonoBehaviour
     {
         if (transform.localScale.x > 0.20f && transform.localScale.y > 0.20f) //Check if the object is already at the minimum size
         {
-            transform.localScale -= new Vector3(BeatSpeed, BeatSpeed, 0) * Time.deltaTime; //Reduce the scale in both X and Y directions
+            transform.localScale -= new Vector3(beatSpeed, beatSpeed, 0) * Time.deltaTime; //Reduce the scale in both X and Y directions
         }
     }
     
@@ -67,6 +66,7 @@ public class Circle_Shrinker : MonoBehaviour
         perfect = transform.localScale.x >= 0.20f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
         if(bad)
         {
+            //Instantiate(badText, transform.position + new Vector3(0.5f, 0, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 0;
         }
         else if (ok)
