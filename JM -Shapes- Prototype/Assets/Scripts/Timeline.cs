@@ -9,6 +9,7 @@ public class Timeline : MonoBehaviour
     public GameObject Beat2;
     public GameObject Beat3;
     public GameObject Slider;
+    public GameObject ShortSlider;
     public BeatManager beatManager;
 
     public bool checkingIfKey3IsPressed;
@@ -104,7 +105,7 @@ public class Timeline : MonoBehaviour
         // We spawn the note, in a random place with a random key associated with it, and we add it to the Notes
         if (sliderTimings[currentNote] == 0) // Regular notes
         {
-            if(stack[currentNote] > 0 && stackStart[currentNote])
+            if (stack[currentNote] > 0 && stackStart[currentNote])
             {
                 int randomNote = Random.Range(0, notePrefab.Length);// Randomize beat 1 or 2
                 stackNote = notePrefab[randomNote]; // Store randomly picked one into stackNote which is public and can be reused
@@ -138,19 +139,32 @@ public class Timeline : MonoBehaviour
             notes[currentNote] = nextNote;
             currentNote++;
         }
+        else if (sliderTimings[currentNote] == 2)// Short Slider
+        {
+            GameObject nextNote = Instantiate(ShortSlider, transform.position, randomRotation);
+            nextNote.GetComponent<RandomPosition>().RandomizingPosition();
+            nextNote.name = nextNote.name + currentNote;
+            nextNote.GetComponent<RandomPosition>().sliderSpeedRef.sliderDuration = sliderSpeeds[currentNote];
+            notes[currentNote] = nextNote;
+            currentNote++;
+        }
     }
 
     public void SliderRemove()
     {
-        holdingSlider = false;
         notes[hitNote].GetComponentInChildren<SliderMove>().ExitSlider();
+    }
+
+    public void ImproperSliderRemove()
+    {
+        notes[hitNote].GetComponentInChildren<SliderMove>().ExitSliderImproper();
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
-            SliderRemove();
+            ImproperSliderRemove();
             reachedEnd = false;
 
         }
@@ -160,14 +174,15 @@ public class Timeline : MonoBehaviour
             SliderRemove();
         }
         HitNote();
-        Debug.Log("testA");
+        //Debug.Log("testA");
         if (currentNote >= noteTimings.Length)
             return;
-        Debug.Log("testB");
+        //Debug.Log("testB");
         if (Time.time >= noteTimings[currentNote] - 1.15 && Time.time <= noteTimings[currentNote] - 1.15 + 0.15f) // When its the right timing, we need to spawn the note
         {
-            Debug.Log("Test1");
+            //Debug.Log("Test1");
             SpawnNext();
+   
         }
     }
 }

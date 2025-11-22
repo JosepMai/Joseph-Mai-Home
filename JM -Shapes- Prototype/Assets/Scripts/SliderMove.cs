@@ -43,6 +43,13 @@ public class SliderMove : MonoBehaviour
         Destroy(transform.root.gameObject);//Destroys the root of a gameObject
     }
 
+    public void ExitSliderImproper()
+    {
+        tl.hitNote++;
+        tl.holdingSlider = false;
+        Destroy(transform.root.gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Point1")

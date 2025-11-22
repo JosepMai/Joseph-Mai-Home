@@ -62,7 +62,7 @@ public class Slider_Shrinker : MonoBehaviour
     }
     public void CheckingSliderShrink()
     {
-        if (Input.GetKey(KeyCode.C) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
+        if (Input.GetKeyDown(KeyCode.C) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
 
 

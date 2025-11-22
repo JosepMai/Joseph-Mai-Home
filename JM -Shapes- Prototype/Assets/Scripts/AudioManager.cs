@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
     public GameObject beatManagers;
     private AudioSource audioSource;
     public AudioClip soundToPlay;
-    public int CountdownTime;
+    public float CountdownTime;
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
