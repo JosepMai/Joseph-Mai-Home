@@ -16,10 +16,13 @@ public class SliderMove : MonoBehaviour
     public Timeline tl;
     public bool checkingIfKey3IsPressed;
     public float mainsliderSpeed;
+    public float shortsliderSpeed;
     public float sliderDuration;
+    public bool checkingLongslider;
     void Start()
     {
-        mainsliderSpeed = 10/sliderDuration;
+        shortsliderSpeed = 5 / sliderDuration;
+        mainsliderSpeed = 10 / sliderDuration;
         tl = FindAnyObjectByType<Timeline>();
         checkingIfKey3IsPressed = false;
     }
@@ -32,6 +35,11 @@ public class SliderMove : MonoBehaviour
     public void MovingSlider()
     {
         transform.position = Vector3.MoveTowards(transform.position, end.position, mainsliderSpeed * Time.deltaTime);
+        checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
+    }
+    public void MovingShortSlider()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, end.position, shortsliderSpeed * Time.deltaTime);
         checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
     }
     public void ExitSlider() // When it reaches the end properly

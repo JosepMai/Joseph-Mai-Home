@@ -76,12 +76,21 @@ public class Timeline : MonoBehaviour
         {
             HitSlider(); // This checks the initial press for sliders
         }
+        else if (Input.GetKey(KeyCode.C) && notes[hitNote].name == ShortSlider.name + "(Clone)" + hitNote && reachedEnd == false)
+        {
+            HitShortSlider();
+        }
     }
 
     public void HitSlider() // This checks the initial press for sliders
     {
         holdingSlider = true;//Sets holdingSlider to true
         notes[hitNote].GetComponentInChildren<SliderMove>().MovingSlider();//Calls Moving Slider in SliderMove
+    }
+    public void HitShortSlider()
+    {
+        holdingSlider = true;//Sets holdingSlider to true
+        notes[hitNote].GetComponentInChildren<SliderMove>().MovingShortSlider();//Calls Moving Slider in SliderMove
     }
 
     public void CheckHit()
@@ -130,7 +139,7 @@ public class Timeline : MonoBehaviour
             }
             currentNote++;
         }
-        else if (sliderTimings[currentNote] == 1) // Slider
+        else if (sliderTimings[currentNote] == 1 ) // Slider
         {
             GameObject nextNote = Instantiate(Slider, transform.position, randomRotation);
             nextNote.GetComponent<RandomPosition>().RandomizingPosition();
@@ -166,7 +175,6 @@ public class Timeline : MonoBehaviour
         {
             ImproperSliderRemove();
             reachedEnd = false;
-
         }
         else if (Input.GetKeyUp(KeyCode.C) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
