@@ -79,11 +79,12 @@ public class SliderMove : MonoBehaviour
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
         }
-        if (collision.gameObject.tag == "FinalPoint")
+        if (collision.gameObject.tag == "FinalPoint" && collision.gameObject.transform.root == transform.root)
         {
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
             ExitSlider();
+            Debug.Log("Reached final point");
          
         }
     }

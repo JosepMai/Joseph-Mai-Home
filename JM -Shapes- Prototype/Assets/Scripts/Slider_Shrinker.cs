@@ -95,7 +95,7 @@ public class Slider_Shrinker : MonoBehaviour
       
         if (transform.localScale.x <= 0.3f)//If the ring is smaller than 0.3f
         {
-            tl.SliderRemove();//Calls Slider Remove
+            tl.ImproperSliderRemove();//Calls Slider Remove
             Destroy(transform.root.gameObject);//Destroys the root of the gameobject
         }
     }

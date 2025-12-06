@@ -161,25 +161,41 @@ public class Timeline : MonoBehaviour
 
     public void SliderRemove()
     {
-        notes[hitNote].GetComponentInChildren<SliderMove>().ExitSlider();
+      
+        if (notes[hitNote].GetComponentInChildren<SliderMove>() != null)
+        {
+            Debug.Log(notes[hitNote].gameObject);
+            notes[hitNote].GetComponentInChildren<SliderMove>().ExitSlider();
+        }
+            
     }
 
     public void ImproperSliderRemove()
     {
-        notes[hitNote].GetComponentInChildren<SliderMove>().ExitSliderImproper();
+
+        if (notes[hitNote].GetComponentInChildren<SliderMove>() != null)
+        {
+            Debug.Log(notes[hitNote].gameObject);
+            notes[hitNote].GetComponentInChildren<SliderMove>().ExitSliderImproper();
+        }
+
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
-            ImproperSliderRemove();
             reachedEnd = false;
+
+
+
         }
         else if (Input.GetKeyUp(KeyCode.C) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
             reachedEnd = false;
-            SliderRemove();
+
+ 
+
         }
         HitNote();
         //Debug.Log("testA");
