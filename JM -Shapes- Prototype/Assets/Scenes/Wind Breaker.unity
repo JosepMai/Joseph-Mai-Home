@@ -476,6 +476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle for glow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 29229084898811622, guid: 09b04c51546a0a041be20b654a0573f6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454243565460027316, guid: 09b04c51546a0a041be20b654a0573f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.24
