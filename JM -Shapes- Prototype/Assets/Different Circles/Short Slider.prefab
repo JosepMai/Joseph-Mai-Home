@@ -959,7 +959,9 @@ MonoBehaviour:
   tl: {fileID: 0}
   checkingIfKey3IsPressed: 0
   mainsliderSpeed: 0
+  shortsliderSpeed: 0
   sliderDuration: 0
+  checkingLongslider: 0
 --- !u!58 &8715643355919395935
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1690,7 +1692,7 @@ Transform:
   m_GameObject: {fileID: 7204093668605306565}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 27.32}
+  m_LocalPosition: {x: 0, y: 0, z: 18.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
