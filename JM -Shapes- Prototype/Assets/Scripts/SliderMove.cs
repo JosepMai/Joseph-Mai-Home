@@ -13,6 +13,7 @@ public class SliderMove : MonoBehaviour
     public GameObject FinalPoint;
     public GameObject gamemanager;
     public GameObject Slider;
+    public GameObject BackPoint;
     public Timeline tl;
     public bool checkingIfKey3IsPressed;
     public float mainsliderSpeed;
@@ -30,17 +31,21 @@ public class SliderMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyUp(KeyCode.C) && checkingIfKey3IsPressed)
+        {
+            ExitSliderImproper();
+        }
     }
     public void MovingSlider()
     {
-        transform.position = Vector3.MoveTowards(transform.position, end.position, mainsliderSpeed * Time.deltaTime);
-        checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
+         transform.position = Vector3.MoveTowards(transform.position, end.position, mainsliderSpeed * Time.deltaTime);
+         checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
     }
     public void MovingShortSlider()
     {
-        transform.position = Vector3.MoveTowards(transform.position, end.position, shortsliderSpeed * Time.deltaTime);
-        checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
+
+         transform.position = Vector3.MoveTowards(transform.position, end.position, shortsliderSpeed * Time.deltaTime);
+         checkingIfKey3IsPressed = true; //Sets checkingifKey3IsPressed to true
     }
     public void ExitSlider() // When it reaches the end properly
     {

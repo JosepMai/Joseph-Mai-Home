@@ -186,16 +186,10 @@ public class Timeline : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
             reachedEnd = false;
-
-
-
         }
         else if (Input.GetKeyUp(KeyCode.C) && !holdingSlider)//If it gets key 3 and holdingSlider = false
         {
             reachedEnd = false;
-
- 
-
         }
         HitNote();
         //Debug.Log("testA");
