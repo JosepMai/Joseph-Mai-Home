@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Gachiakuta.unity
     guid: 0caee18dbf49a644b90a3f075a32900b
   - enabled: 1
-    path: Assets/Scenes/Hilchryme.unity
+    path: Assets/Scenes/Hilcrhyme.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Flamewall.unity
