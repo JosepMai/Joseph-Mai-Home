@@ -6,7 +6,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeScenes : MonoBehaviour
+public class Button_Manager : MonoBehaviour
 {
     public GameObject CurrentImage;
     public GameObject CanonImage;
@@ -223,5 +223,10 @@ public class ChangeScenes : MonoBehaviour
         {
             ClickCounter = 0;
         }
+    }
+
+    public void PlayButton()
+    {
+        SceneManager.LoadScene("Menu Scene");
     }
 }
