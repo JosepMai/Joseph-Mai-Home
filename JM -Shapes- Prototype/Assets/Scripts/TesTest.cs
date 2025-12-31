@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TesTest : MonoBehaviour
 {
+    public GameObject PlayButton;
+    public GameObject Canvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,11 @@ public class TesTest : MonoBehaviour
     }
     public void moveup()
     {
-       transform.Translate(Vector3.up * riseSpeed * Time.deltaTime);
-        riseSpeed += 1.0f;
+        if (PlayButton == null)
+        {
+            transform.Translate(Vector3.up * riseSpeed * Time.deltaTime);
+            riseSpeed += 1.0f;
+        }
     }
+
 }

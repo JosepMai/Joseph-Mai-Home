@@ -6,9 +6,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonManager : MonoBehaviour
+public class Button_Manager : MonoBehaviour
 {
-
     public GameObject CurrentImage;
     public GameObject CanonImage;
     public GameObject DevilImage;
@@ -21,17 +20,14 @@ public class ButtonManager : MonoBehaviour
     public int ClickCounter = 0;
     public bool FirstClick = true;
     public bool SecondClick = false;
-    public bool ClickedStartButton = false;
     public string HighlightedLevel;
     public void Start()
     {
-
     }
     public void Update()
     {
 
     }
-
     public void Canon()
     {
         if (HighlightedLevel != "Canon")
@@ -229,13 +225,8 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    public void StartButton()
+    public void PlayButton()
     {
-
         SceneManager.LoadScene("Menu Scene");
-    }
-    public void DelayStartButton()
-    {
-        Invoke("StartButton", 2f);
     }
 }
