@@ -236,6 +236,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void DelayStartButton()
     {
-        Invoke("StartButton", 2f);
+        ClickedStartButton = true;
+        Invoke("StartButton", 1f);
     }
 }
