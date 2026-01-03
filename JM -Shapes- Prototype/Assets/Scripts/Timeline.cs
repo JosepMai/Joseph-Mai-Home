@@ -196,9 +196,11 @@ public class Timeline : MonoBehaviour
         if (currentNote >= noteTimings.Length)
             return;
         //Debug.Log("testB");
-        if (Time.time >= noteTimings[currentNote] - 1.15 && Time.time <= noteTimings[currentNote] - 1.15 + 0.15f) // When its the right timing, we need to spawn the note
+        Debug.Log(noteTimings[currentNote] - 1.15f);
+        Debug.Log(Time.time);
+        if (Time.timeSinceLevelLoad >= noteTimings[currentNote] - 1.15 && Time.timeSinceLevelLoad <= noteTimings[currentNote] - 1.15 + 0.15f) // When its the right timing, we need to spawn the note
         {
-            //Debug.Log("Test1");
+            Debug.Log("Test1");
             SpawnNext();
    
         }
