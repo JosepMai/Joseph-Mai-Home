@@ -1827,6 +1827,14 @@ PrefabInstance:
       value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5187533391756545604, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+      propertyPath: notePrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 5732830337712866573, guid: 82a88dc1f56e1194db370c489c114a1d, type: 3}
+    - target: {fileID: 5187533391756545604, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
+      propertyPath: notePrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 229945170268149308, guid: 5ff7e6215491e9c43affc0a0959d09aa, type: 3}
+    - target: {fileID: 5187533391756545604, guid: cb0148d3c5807bf46a46771f225723a8, type: 3}
       propertyPath: notePrefab.Array.data[2]
       value: 
       objectReference: {fileID: 229945170268149308, guid: 70c2a9264c6cac5469b91961e459ad30, type: 3}
