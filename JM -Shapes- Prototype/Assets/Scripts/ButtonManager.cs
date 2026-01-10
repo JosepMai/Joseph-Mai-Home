@@ -11,6 +11,7 @@ public class Button_Manager : MonoBehaviour
     public GameObject CurrentImage;
     public GameObject CanonImage;
     public GameObject DevilImage;
+    public GameObject CandyImage;
     public GameObject CDImage;
     public GameObject WindBreakerImage;
     public GameObject HUGSImage;
@@ -21,6 +22,7 @@ public class Button_Manager : MonoBehaviour
     public bool FirstClick = true;
     public bool SecondClick = false;
     public string HighlightedLevel;
+    public bool ClickedStartButton;
     public void Start()
     {
     }
@@ -80,6 +82,34 @@ public class Button_Manager : MonoBehaviour
             SceneManager.LoadScene("Devil in Disguise");
         }
         else if (ClickCounter == 2 && HighlightedLevel != "Devil")
+        {
+            ClickCounter = 0;
+        }
+    }
+    public void CandyLand()
+    {
+        if (HighlightedLevel != "CandyLand")
+        {
+            CandyImage.SetActive(true);
+            CurrentImage.SetActive(false);
+            CurrentImage = CandyImage;
+            Coverup.SetActive(false);
+            HighlightedLevel = "CandyLand";
+            ClickCounter = 0;
+        }
+
+        if (HighlightedLevel == "CandyLand")
+        {
+            ClickCounter += 1;
+        }
+    }
+    public void LoadCandyLand()
+    {
+        if (ClickCounter == 2 && HighlightedLevel == "CandyLand")
+        {
+            SceneManager.LoadScene("Candyland");
+        }
+        else if (ClickCounter == 2 && HighlightedLevel != "CandyLand")
         {
             ClickCounter = 0;
         }
@@ -228,5 +258,11 @@ public class Button_Manager : MonoBehaviour
     public void PlayButton()
     {
         SceneManager.LoadScene("Menu Scene");
+
+    }
+    public void InvokePlayButton()
+    {
+        ClickedStartButton = true;
+        Invoke("PlayButton", 1f);
     }
 }

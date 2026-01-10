@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Devil In Disguise.unity
     guid: 01975fff5494b5e4092aae9ec83f80d3
   - enabled: 1
+    path: Assets/Scenes/Candyland.unity
+    guid: 24668acedf8ce5e499b1fa63429b2e13
+  - enabled: 1
     path: Assets/Scenes/Cute Depress.unity
     guid: c7718f38ac486e94c92957a4a16efe73
   - enabled: 1

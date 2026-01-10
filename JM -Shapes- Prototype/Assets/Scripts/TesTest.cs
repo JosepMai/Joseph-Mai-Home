@@ -26,7 +26,7 @@ public class TesTest : MonoBehaviour
             transform.Translate(Vector3.up * riseSpeed * Time.deltaTime);
             riseSpeed += 1.0f;
         }
-        else if (Canvas.GetComponent<ButtonManager>().ClickedStartButton == true)
+        else if (Canvas.GetComponent<Button_Manager>().ClickedStartButton == true)
         {
             riseSpeed = 20f;
             transform.Translate(Vector3.up * riseSpeed * Time.deltaTime);

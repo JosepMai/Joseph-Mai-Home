@@ -67,20 +67,17 @@ public class SliderMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Point1" && collision.gameObject.transform.root == transform.root)
         {
-            Point1.GetComponent<Renderer>().material.color = new Color(0.3f, 0.3f, 1f);
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
             
         }
         if (collision.gameObject.tag == "Point2" && collision.gameObject.transform.root == transform.root)
         {
-            Point2.GetComponent<Renderer>().material.color = new Color(0.3f, 0.3f, 1f);
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
         }
         if (collision.gameObject.tag == "Point3" && collision.gameObject.transform.root == transform.root)
         {
-            Point3.GetComponent<Renderer>().material.color = new Color(0.3f, 0.3f, 1f);
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
         }

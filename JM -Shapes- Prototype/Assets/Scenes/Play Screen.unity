@@ -741,8 +741,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1794313202}
-        m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: DelayStartButton
+        m_TargetAssemblyTypeName: Button_Manager, Assembly-CSharp
+        m_MethodName: InvokePlayButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game name '
+  m_text: ZO!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1780,12 +1780,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1794313196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37c6c719740e88e4392bee2d6ec00d20, type: 3}
+  m_Script: {fileID: 11500000, guid: 2712f0db7aeff72469649cce6ee5547c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentImage: {fileID: 0}
   CanonImage: {fileID: 0}
   DevilImage: {fileID: 0}
+  CandyImage: {fileID: 0}
   CDImage: {fileID: 0}
   WindBreakerImage: {fileID: 0}
   HUGSImage: {fileID: 0}
@@ -1795,8 +1796,8 @@ MonoBehaviour:
   ClickCounter: 0
   FirstClick: 1
   SecondClick: 0
-  ClickedStartButton: 0
   HighlightedLevel: 
+  ClickedStartButton: 0
 --- !u!1 &1845039054
 GameObject:
   m_ObjectHideFlags: 0
