@@ -35,4 +35,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Scene.unity
     guid: 4ab9a3c32dfc833409128c0237eb2d3d
+  - enabled: 1
+    path: Assets/Scenes/SLIDER(INSTRUCTION).unity
+    guid: 7d0e84cdba747b44b8d4add4545888e9
+  - enabled: 1
+    path: Assets/Scenes/BEAT(INSTRUCTION).unity
+    guid: 6e0559cb875b91549baa8e82f87cb38e
+  - enabled: 1
+    path: Assets/Scenes/STACK(INSTRUCTION).unity
+    guid: f49e4f23a4b4b5543b674284788075c7
+  - enabled: 1
+    path: Assets/Scenes/Play_Screen.unity
+    guid: c8d1abeee0d43b845940ff4c04fd767c
   m_configObjects: {}

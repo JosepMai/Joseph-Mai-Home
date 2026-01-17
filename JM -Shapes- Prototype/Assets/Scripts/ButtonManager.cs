@@ -265,4 +265,20 @@ public class Button_Manager : MonoBehaviour
         ClickedStartButton = true;
         Invoke("PlayButton", 1f);
     }
+    public void SliderInstructions()
+    {
+        SceneManager.LoadScene("SLIDER(INSTRUCTION)");
+    }
+    public void CircleInstructions()
+    {
+        SceneManager.LoadScene("BEAT(INSTRUCTION)");
+    }
+    public void StackInstruction()
+    {
+        SceneManager.LoadScene("STACK(INSTRUCTION)");
+    }
+    public void Play_Screen()
+    {
+        SceneManager.LoadScene("Play_Screen");
+    }
 }
