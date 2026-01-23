@@ -48,7 +48,6 @@ MonoBehaviour:
   totalSongTime: 0
   totalCountdownTime: 0
   BeatsInSong: 0
-  BeatsCounter: 0
   score: 0
   CheckingCountdown: 0
   Beat1Triggered: 0
@@ -56,16 +55,6 @@ MonoBehaviour:
   CountdownTime: {fileID: 0}
   SongTime: {fileID: 0}
   ScoreText: {fileID: 0}
-  Beat1: {fileID: 0}
-  Beat2: {fileID: 0}
-  ShrinkingRing1: {fileID: 0}
-  ShrinkingRing2: {fileID: 0}
-  InnerCircle1: {fileID: 0}
-  InnerCircle2: {fileID: 0}
-  listOfNotes:
-  - {fileID: 0}
-  - {fileID: 0}
-  numOfNotes: 2
   key: 49
 --- !u!114 &5187533391756545604
 MonoBehaviour:
@@ -79,9 +68,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26cd31aa84c452844abfaed342ead9b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missText: {fileID: 2107390990579405658, guid: 1c01296fccdc2fb499a55c719ceb499e, type: 3}
   Beat1: {fileID: 0}
   Beat2: {fileID: 0}
+  Beat3: {fileID: 0}
+  Slider: {fileID: 0}
+  ShortSlider: {fileID: 0}
   beatManager: {fileID: 1057234742747548741}
+  checkingIfKey3IsPressed: 0
   noteTimings:
   - 1
   - 1.5
@@ -100,10 +94,17 @@ MonoBehaviour:
   - 15
   - 16
   - 17
+  sliderTimings: []
+  stack: []
+  stackStart: 
+  sliderSpeeds: []
+  stackPos: {x: 0, y: 0, z: 0}
+  stackNote: {fileID: 0}
   notes: []
   notePrefab:
   - {fileID: 5732830337712866573, guid: 82a88dc1f56e1194db370c489c114a1d, type: 3}
   - {fileID: 229945170268149308, guid: 5ff7e6215491e9c43affc0a0959d09aa, type: 3}
   currentNote: 0
-  CurrentTime: 0
-  note1: {fileID: 5732830337712866573, guid: 82a88dc1f56e1194db370c489c114a1d, type: 3}
+  hitNote: 0
+  holdingSlider: 0
+  reachedEnd: 0

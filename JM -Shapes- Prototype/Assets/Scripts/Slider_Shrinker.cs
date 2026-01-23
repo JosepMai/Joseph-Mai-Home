@@ -64,8 +64,6 @@ public class Slider_Shrinker : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
-
-
             if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early
             {
                 tl.hitNote++;

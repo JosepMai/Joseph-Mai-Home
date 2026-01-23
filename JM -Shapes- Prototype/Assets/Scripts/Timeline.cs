@@ -5,13 +5,14 @@ using UnityEngine;
 public class Timeline : MonoBehaviour
 {
     //IN PROGRESS
+    public GameObject missText;
     public GameObject Beat1;
     public GameObject Beat2;
     public GameObject Beat3;
     public GameObject Slider;
     public GameObject ShortSlider;
     public BeatManager beatManager;
-
+    
     public bool checkingIfKey3IsPressed;
 
     public float[] noteTimings; // this is in charge of when to spawn the note
@@ -30,6 +31,8 @@ public class Timeline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
+        //PlayerPrefs.DeleteKey("Bad");
         notes = new GameObject[noteTimings.Length];  // Initialize array to the same length
         for (int i = 0; i < notes.Length; i++)
         {
@@ -48,6 +51,9 @@ public class Timeline : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat1.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Beat1.name + "(Clone)")
         {
+            FindAnyObjectByType<BeatManager>().score += -1;
+            PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
+            Instantiate(missText, transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             MissedNote();
         }
 
@@ -59,6 +65,9 @@ public class Timeline : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat2.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha3) && notes[hitNote].name == Beat2.name + "(Clone)") // u hit the wrong note
         {
+            FindAnyObjectByType<BeatManager>().score += -1;
+            PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
+            Instantiate(missText, transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             MissedNote();
         }
 
@@ -69,6 +78,9 @@ public class Timeline : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha1) && notes[hitNote].name == Beat3.name + "(Clone)" || Input.GetKeyDown(KeyCode.Alpha2) && notes[hitNote].name == Beat3.name + "(Clone)") // u hit the wrong note
         {
+            FindAnyObjectByType<BeatManager>().score += -1;
+            PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
+            Instantiate(missText, transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             MissedNote();
         }
 

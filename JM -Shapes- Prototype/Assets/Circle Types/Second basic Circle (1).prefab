@@ -467,6 +467,30 @@ PrefabInstance:
       propertyPath: ShrinkingRing1
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.data[0]
+      value: 
+      objectReference: {fileID: 2107390990579405658, guid: 1c01296fccdc2fb499a55c719ceb499e, type: 3}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.data[1]
+      value: 
+      objectReference: {fileID: 2107390990579405658, guid: 07b80ff382afb614c8ee1a0f30c1e0b6, type: 3}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.data[2]
+      value: 
+      objectReference: {fileID: 2107390990579405658, guid: cff850de05b06ef41bf2d894e5e453dd, type: 3}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.data[3]
+      value: 
+      objectReference: {fileID: 2107390990579405658, guid: e0dfbf007c4608e41954647980dce5fb, type: 3}
+    - target: {fileID: 2611372098877299709, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
+      propertyPath: accuracyText.Array.data[4]
+      value: 
+      objectReference: {fileID: 2107390990579405658, guid: eb3f260f58a101d4889a3d4b9a93e15d, type: 3}
     - target: {fileID: 3017776052059503922, guid: 01c2b90ec4b722a43a0f0f8be1f36753, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

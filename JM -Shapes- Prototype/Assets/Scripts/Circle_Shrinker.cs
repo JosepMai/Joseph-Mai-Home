@@ -8,12 +8,17 @@ public class Circle_Shrinker : MonoBehaviour
     public float beatSpeed = 0.0035f; //Adjust this value to control the shrinking speed
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
 
+    public int misscounter;
+    public int badcounter;
+    public int okcounter;
+    public int goodcounter;
+    public int perfectcounter;
     public bool miss;
     public bool bad;
     public bool ok;
     public bool good;
     public bool perfect;
-
+    public GameObject[] accuracyText;
     public GameObject badText;
     public bool startCircleShrinking;
     void Start()
@@ -66,20 +71,27 @@ public class Circle_Shrinker : MonoBehaviour
         perfect = transform.localScale.x >= 0.20f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
         if(bad)
         {
-            //Instantiate(badText, transform.position + new Vector3(0.5f, 0, 0), Quaternion.identity);
+            Instantiate(accuracyText[1], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 0;
+            PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
         }
         else if (ok)
         {
+            Instantiate(accuracyText[2], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 1;
+            PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
         }
         else if (good)
         {
+            Instantiate(accuracyText[3], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 2;
+            PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
         }
         else if (perfect)
         {
+            Instantiate(accuracyText[4], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 3;
+            PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Pefect", 0) + 1);
         }
 
     }
@@ -90,6 +102,10 @@ public class Circle_Shrinker : MonoBehaviour
         if (miss)
         {
             FindAnyObjectByType<Timeline>().hitNote++; //Finds timeline and increases hitNote by 1
+            FindAnyObjectByType<BeatManager>().score += -1;
+            PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
+            misscounter += 1;
+            Instantiate(accuracyText[0], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             Destroy(transform.parent.gameObject.transform.parent.gameObject);//Destroys the biggest parent
         }
 
