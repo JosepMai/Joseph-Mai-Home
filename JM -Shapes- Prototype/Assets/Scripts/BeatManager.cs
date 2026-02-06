@@ -33,6 +33,7 @@ public class BeatManager : MonoBehaviour
     {
         CountdownTimers();
         ScoreText.text = "Score:" + score.ToString();
+        PlayerPrefs.SetInt("FinalScore", score);
     }
     public void CountdownTimers()// Function for the Timers(Countdown, Total Time, and End Time)
     {

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Button_Manager : MonoBehaviour
 {
     public GameObject CurrentImage;
+    public GameObject CurrentScript;
     public GameObject CanonImage;
     public GameObject DevilImage;
     public GameObject CandyImage;
@@ -18,6 +19,16 @@ public class Button_Manager : MonoBehaviour
     public GameObject ThousandNightsImage;
     public GameObject FlameWallImage;
     public GameObject Coverup;
+
+    public GameObject CanonScript;
+    public GameObject DevilScript;
+    public GameObject CandyScript;
+    public GameObject CDScript;
+    public GameObject WindBreakerScript;
+    public GameObject HUGSScript;
+    public GameObject ONETScript;
+    public GameObject FlameWallScript;
+    public GameObject ScriptCoverup;
     public int ClickCounter = 0;
     public bool FirstClick = true;
     public bool SecondClick = false;
@@ -35,9 +46,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "Canon")
         {
             CanonImage.SetActive(true);
+            CanonScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = CanonImage;
+            CurrentScript = CanonScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "Canon";
             ClickCounter = 0;
         }
@@ -63,15 +78,20 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "Devil")
         {
             DevilImage.SetActive(true);
+            DevilScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = DevilImage;
+            CurrentScript = DevilScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "Devil";
             ClickCounter = 0;
         }
         
         if (HighlightedLevel == "Devil")
         {
+
             ClickCounter += 1;
         }
     }
@@ -91,9 +111,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "CandyLand")
         {
             CandyImage.SetActive(true);
+            CandyScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = CandyImage;
+            CurrentScript = CandyScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "CandyLand";
             ClickCounter = 0;
         }
@@ -119,9 +143,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "CD")
         {
             CDImage.SetActive(true);
+            CDScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = CDImage;
+            CurrentScript = CDScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "CD";
             ClickCounter = 0;
         }
@@ -147,9 +175,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "WindBreaker")
         {
             WindBreakerImage.SetActive(true);
+            WindBreakerScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = WindBreakerImage;
+            CurrentScript = WindBreakerScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "WindBreaker";
             ClickCounter = 0;
         }
@@ -175,9 +207,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "HUGS")
         {
             HUGSImage.SetActive(true);
+            HUGSScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = HUGSImage;
+            CurrentScript = HUGSScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "HUGS";
             ClickCounter = 0;
         }
@@ -203,9 +239,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "ThousandNights")
         {
             ThousandNightsImage.SetActive(true);
+            ONETScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = ThousandNightsImage;
+            CurrentScript = ONETScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "ThousandNights";
             ClickCounter = 0;
         }
@@ -231,9 +271,13 @@ public class Button_Manager : MonoBehaviour
         if (HighlightedLevel != "Flamewall")
         {
             FlameWallImage.SetActive(true);
+            FlameWallScript.SetActive(true);
             CurrentImage.SetActive(false);
+            CurrentScript.SetActive(false);
             CurrentImage = FlameWallImage;
+            CurrentScript = FlameWallScript;
             Coverup.SetActive(false);
+            ScriptCoverup.SetActive(false);
             HighlightedLevel = "Flamewall";
             ClickCounter = 0;
         }

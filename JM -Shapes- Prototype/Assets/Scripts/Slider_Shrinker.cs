@@ -9,6 +9,7 @@ public class Slider_Shrinker : MonoBehaviour
     private Vector3 originalScale; //Sets the vector 3 to its original Scale
 
     public GameObject Slider;
+    public GameObject[] SliderAccuracy;
 
     public bool startShrinking;
     public bool FreezeTheRing = false;
@@ -66,26 +67,36 @@ public class Slider_Shrinker : MonoBehaviour
         {
             if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early
             {
+                Instantiate(SliderAccuracy[1], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
+                PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
                 tl.hitNote++;
                 Destroy(transform.root.gameObject);
+                
             }
             else if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Too early
             {
+                Instantiate(SliderAccuracy[2], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
                 FreezeTheRing = true;
                 badHit = true;
+                PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
             }
             else if (transform.localScale.x > 0.65f && transform.localScale.x <= 0.75f) //Okay
             {
+                Instantiate(SliderAccuracy[3], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
                 FreezeTheRing = true;
                 goodHit = true;
+                PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
             }
             else if (transform.localScale.x > 0.5f && transform.localScale.x <= 0.65f) //Perfect
             {
+                Instantiate(SliderAccuracy[4], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
                 FreezeTheRing = true;
                 perfectHit = true;
+                PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Perfect", 0) + 1);
             }
             else if (transform.localScale.x > 0.3f && transform.localScale.x <= 0.5f)
             {
+                Instantiate(SliderAccuracy[0], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
                 FreezeTheRing = true;
                 badHit = true;
             }
@@ -94,6 +105,7 @@ public class Slider_Shrinker : MonoBehaviour
         if (transform.localScale.x <= 0.3f)//If the ring is smaller than 0.3f
         {
             tl.ImproperSliderRemove();//Calls Slider Remove
+            PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
             Destroy(transform.root.gameObject);//Destroys the root of the gameobject
         }
     }

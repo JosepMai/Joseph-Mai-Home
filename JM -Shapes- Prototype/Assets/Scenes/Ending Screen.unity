@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4310e4b523a5be94da4a5442027cd451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FinalScoreText: {fileID: 1482019465}
   PerfectText: {fileID: 1943940839}
   GoodText: {fileID: 458819412}
   OkText: {fileID: 178977013}
@@ -639,7 +640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484, y: 424.95}
+  m_AnchoredPosition: {x: -548, y: 424.95}
   m_SizeDelta: {x: 835.0692, y: 230.1058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482019465
@@ -725,7 +726,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -921.80237, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

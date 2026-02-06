@@ -31,8 +31,8 @@ public class Timeline : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-        //PlayerPrefs.DeleteKey("Bad");
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("Bad");
         notes = new GameObject[noteTimings.Length];  // Initialize array to the same length
         for (int i = 0; i < notes.Length; i++)
         {

@@ -235,6 +235,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeatSpeed: 1.2
   Slider: {fileID: 7204093668605306565}
+  SliderAccuracy:
+  - {fileID: 2107390990579405658, guid: 1c01296fccdc2fb499a55c719ceb499e, type: 3}
+  - {fileID: 2107390990579405658, guid: 07b80ff382afb614c8ee1a0f30c1e0b6, type: 3}
+  - {fileID: 2107390990579405658, guid: cff850de05b06ef41bf2d894e5e453dd, type: 3}
+  - {fileID: 2107390990579405658, guid: e0dfbf007c4608e41954647980dce5fb, type: 3}
+  - {fileID: 2107390990579405658, guid: eb3f260f58a101d4889a3d4b9a93e15d, type: 3}
   startShrinking: 0
   FreezeTheRing: 0
   miss: 0
