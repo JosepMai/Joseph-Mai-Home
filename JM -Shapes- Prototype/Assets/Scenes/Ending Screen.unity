@@ -158,6 +158,7 @@ MonoBehaviour:
   OkText: {fileID: 178977013}
   BadText: {fileID: 1783538117}
   MissText: {fileID: 1520173327}
+  GradeText: {fileID: 1822744743}
 --- !u!4 &116706470
 Transform:
   m_ObjectHideFlags: 0
@@ -640,7 +641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -548, y: 424.95}
+  m_AnchoredPosition: {x: -473, y: 424.95}
   m_SizeDelta: {x: 835.0692, y: 230.1058}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1482019465

@@ -21,6 +21,7 @@ public class Circle_Shrinker : MonoBehaviour
     public GameObject[] accuracyText;
     public GameObject badText;
     public bool startCircleShrinking;
+    public float AccuracyCounter;
     void Start()
     {
         originalScale = transform.localScale; //Store the original scale
@@ -75,24 +76,28 @@ public class Circle_Shrinker : MonoBehaviour
             Instantiate(accuracyText[1], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 0;
             PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
+            Timeline.instance.AccuracyCount += 0.25f;
         }
         else if (ok)
         {
             Instantiate(accuracyText[2], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 1;
             PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
+            Timeline.instance.AccuracyCount += 0.50f;
         }
         else if (good)
         {
             Instantiate(accuracyText[3], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 2;
             PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
+            Timeline.instance.AccuracyCount += 0.75f;
         }
         else if (perfect)
         {
             Instantiate(accuracyText[4], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 3;
-            PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Pefect", 0) + 1);
+            PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Perfect", 0) + 1);
+            Timeline.instance.AccuracyCount += 1f;
         }
 
     }
@@ -108,6 +113,7 @@ public class Circle_Shrinker : MonoBehaviour
             misscounter += 1;
             Instantiate(accuracyText[0], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             Destroy(transform.parent.gameObject.transform.parent.gameObject);//Destroys the biggest parent
+            AccuracyCounter += 0;
         }
 
         if (transform.localScale.x <= 0.5f)

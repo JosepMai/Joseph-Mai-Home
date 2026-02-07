@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Timeline : MonoBehaviour
 {
+    public static Timeline instance;
     //IN PROGRESS
     public GameObject missText;
     public GameObject Beat1;
@@ -28,6 +30,14 @@ public class Timeline : MonoBehaviour
     public int hitNote;
     public bool holdingSlider;
     public bool reachedEnd;
+
+    public int NoteCount;
+    public float AccuracyCount;
+    public TextMeshProUGUI displayAccuracy;
+    public void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -118,7 +128,6 @@ public class Timeline : MonoBehaviour
         Destroy(notes[hitNote]);
         hitNote++;
     }
-
     public void SpawnNext() // Spawns the next note
     {
         float randomZRotation = Random.Range(0f, 360f);
@@ -135,12 +144,14 @@ public class Timeline : MonoBehaviour
                 stackPos = nextNote.transform.position; // Stores the randomly set position into stackPos which is public and can be reused
                 stack[currentNote + 1] = stack[currentNote] - 1;
                 notes[currentNote] = nextNote;
+                
             }
             else if (stack[currentNote] > 0 && !stackStart[currentNote])
             {
                 GameObject nextNote = Instantiate(stackNote, stackPos, Quaternion.identity);
                 stack[currentNote + 1] = stack[currentNote] - 1;
                 notes[currentNote] = nextNote;
+                NoteCount++;
             }
             else
             {
@@ -148,6 +159,7 @@ public class Timeline : MonoBehaviour
                 GameObject nextNote = Instantiate(notePrefab[randomNote], transform.position, Quaternion.identity);
                 nextNote.GetComponent<RandomPosition>().RandomizingPosition();
                 notes[currentNote] = nextNote;
+                NoteCount++;
             }
             currentNote++;
         }
@@ -158,6 +170,7 @@ public class Timeline : MonoBehaviour
             nextNote.name = nextNote.name + currentNote;
             nextNote.GetComponent<RandomPosition>().sliderSpeedRef.sliderDuration = sliderSpeeds[currentNote];
             notes[currentNote] = nextNote;
+            NoteCount++;
             currentNote++;
         }
         else if (sliderTimings[currentNote] == 2)// Short Slider
@@ -167,6 +180,7 @@ public class Timeline : MonoBehaviour
             nextNote.name = nextNote.name + currentNote;
             nextNote.GetComponent<RandomPosition>().sliderSpeedRef.sliderDuration = sliderSpeeds[currentNote];
             notes[currentNote] = nextNote;
+            NoteCount++;
             currentNote++;
         }
     }
@@ -195,7 +209,34 @@ public class Timeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
+
+        displayAccuracy.text = ((AccuracyCount / NoteCount) * 100).ToString("F2") + "%";
+
+        if (((AccuracyCount / NoteCount) * 100) == 100)//Score S
+        {
+            PlayerPrefs.SetInt("GRADE", 6);
+        }
+        else if (((AccuracyCount / NoteCount) * 100) >= 90 && ((AccuracyCount / NoteCount) * 100) < 100)//Score A
+        {
+            PlayerPrefs.SetInt("GRADE", 5);
+        }
+        else if (((AccuracyCount / NoteCount) * 100) >= 80 && ((AccuracyCount / NoteCount) * 100) < 90)//Score B
+        {
+            PlayerPrefs.SetInt("GRADE", 4);
+        }
+        else if (((AccuracyCount / NoteCount) * 100) >= 70 && ((AccuracyCount / NoteCount) * 100) < 80)//Score C
+        {
+            PlayerPrefs.SetInt("GRADE", 3);
+        }
+        else if (((AccuracyCount / NoteCount) * 100) >= 60 && ((AccuracyCount / NoteCount) * 100) < 70)//Score D
+        {
+            PlayerPrefs.SetInt("GRADE", 2);
+        }
+        else if (((AccuracyCount / NoteCount) * 100) < 60 )
+        {
+            PlayerPrefs.SetInt("GRADE", 1);
+        }
+            if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
         {
             reachedEnd = false;
         }

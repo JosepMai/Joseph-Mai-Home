@@ -64,6 +64,7 @@ public class Button_Manager : MonoBehaviour
     }
     public void LoadCanon()
     {
+   
         if (ClickCounter == 2 && HighlightedLevel == "Canon")
         {
             SceneManager.LoadScene("Canon");

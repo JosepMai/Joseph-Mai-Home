@@ -71,7 +71,7 @@ public class Slider_Shrinker : MonoBehaviour
                 PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
                 tl.hitNote++;
                 Destroy(transform.root.gameObject);
-                
+                Timeline.instance.AccuracyCount += 0.25f;
             }
             else if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Too early
             {
@@ -79,6 +79,7 @@ public class Slider_Shrinker : MonoBehaviour
                 FreezeTheRing = true;
                 badHit = true;
                 PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
+                Timeline.instance.AccuracyCount += 0.50f;
             }
             else if (transform.localScale.x > 0.65f && transform.localScale.x <= 0.75f) //Okay
             {
@@ -86,6 +87,7 @@ public class Slider_Shrinker : MonoBehaviour
                 FreezeTheRing = true;
                 goodHit = true;
                 PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
+                Timeline.instance.AccuracyCount += 0.75f;
             }
             else if (transform.localScale.x > 0.5f && transform.localScale.x <= 0.65f) //Perfect
             {
@@ -93,12 +95,14 @@ public class Slider_Shrinker : MonoBehaviour
                 FreezeTheRing = true;
                 perfectHit = true;
                 PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Perfect", 0) + 1);
+                Timeline.instance.AccuracyCount += 1f;
             }
             else if (transform.localScale.x > 0.3f && transform.localScale.x <= 0.5f)
             {
                 Instantiate(SliderAccuracy[0], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
                 FreezeTheRing = true;
                 badHit = true;
+                Timeline.instance.AccuracyCount += 0.25f;
             }
         }
       
@@ -107,6 +111,7 @@ public class Slider_Shrinker : MonoBehaviour
             tl.ImproperSliderRemove();//Calls Slider Remove
             PlayerPrefs.SetInt("Miss", PlayerPrefs.GetInt("Miss", 0) + 1);
             Destroy(transform.root.gameObject);//Destroys the root of the gameobject
+            Timeline.instance.AccuracyCount += 0f;
         }
     }
 }
