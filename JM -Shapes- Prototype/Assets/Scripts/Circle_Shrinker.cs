@@ -71,6 +71,7 @@ public class Circle_Shrinker : MonoBehaviour
         perfect = transform.localScale.x >= 0.20f && transform.localScale.x <= 0.45f; //Perfect is when the radius/ring of the circle is greater than 0.3f and less than 0.45f
         if(bad)
         {
+
             Instantiate(accuracyText[1], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 0;
             PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
