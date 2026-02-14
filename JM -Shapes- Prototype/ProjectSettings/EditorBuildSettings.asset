@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Flamewall.unity
     guid: 33a2bff87482bf542b2586fc11a585fc
   - enabled: 1
-    path: Assets/Scenes/Menu Scene.unity
+    path: Assets/Scenes/Menu_Scene.unity
     guid: 4ab9a3c32dfc833409128c0237eb2d3d
   - enabled: 1
     path: Assets/Scenes/SLIDER(INSTRUCTION).unity

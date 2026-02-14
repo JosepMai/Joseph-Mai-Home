@@ -302,7 +302,7 @@ public class Button_Manager : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene("Menu Scene");
+        SceneManager.LoadScene("Menu_Scene");
 
     }
     public void InvokePlayButton()
@@ -325,5 +325,9 @@ public class Button_Manager : MonoBehaviour
     public void Play_Screen()
     {
         SceneManager.LoadScene("Play_Screen");
+    }
+    public void Menu_Screen()
+    {
+        SceneManager.LoadScene("Menu_Scene");
     }
 }

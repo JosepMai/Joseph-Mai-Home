@@ -34,6 +34,7 @@ public class Timeline : MonoBehaviour
     public int NoteCount;
     public float AccuracyCount;
     public TextMeshProUGUI displayAccuracy;
+    public AudioSource HitSoundEffect;
     public void Awake()
     {
         instance = this;

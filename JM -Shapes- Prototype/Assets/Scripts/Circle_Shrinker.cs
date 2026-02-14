@@ -76,7 +76,8 @@ public class Circle_Shrinker : MonoBehaviour
             Instantiate(accuracyText[1], transform.position + new Vector3(0, -0.25f, 0), Quaternion.identity);
             FindAnyObjectByType<BeatManager>().score += 0;
             PlayerPrefs.SetInt("Bad", PlayerPrefs.GetInt("Bad", 0) + 1);
-            Timeline.instance.AccuracyCount += 0.25f;
+            Timeline.instance.AccuracyCount += 0.2f;
+            Timeline.instance.HitSoundEffect.Play();
         }
         else if (ok)
         {
@@ -84,6 +85,7 @@ public class Circle_Shrinker : MonoBehaviour
             FindAnyObjectByType<BeatManager>().score += 1;
             PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
             Timeline.instance.AccuracyCount += 0.50f;
+            Timeline.instance.HitSoundEffect.Play();
         }
         else if (good)
         {
@@ -91,6 +93,7 @@ public class Circle_Shrinker : MonoBehaviour
             FindAnyObjectByType<BeatManager>().score += 2;
             PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
             Timeline.instance.AccuracyCount += 0.75f;
+            Timeline.instance.HitSoundEffect.Play();
         }
         else if (perfect)
         {
@@ -98,6 +101,7 @@ public class Circle_Shrinker : MonoBehaviour
             FindAnyObjectByType<BeatManager>().score += 3;
             PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Perfect", 0) + 1);
             Timeline.instance.AccuracyCount += 1f;
+            Timeline.instance.HitSoundEffect.Play();
         }
 
     }

@@ -72,6 +72,7 @@ public class Slider_Shrinker : MonoBehaviour
                 tl.hitNote++;
                 Destroy(transform.root.gameObject);
                 Timeline.instance.AccuracyCount += 0.25f;
+
             }
             else if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Too early
             {
@@ -80,6 +81,7 @@ public class Slider_Shrinker : MonoBehaviour
                 badHit = true;
                 PlayerPrefs.SetInt("Ok", PlayerPrefs.GetInt("Ok", 0) + 1);
                 Timeline.instance.AccuracyCount += 0.50f;
+                Timeline.instance.HitSoundEffect.Play();
             }
             else if (transform.localScale.x > 0.65f && transform.localScale.x <= 0.75f) //Okay
             {
@@ -88,6 +90,7 @@ public class Slider_Shrinker : MonoBehaviour
                 goodHit = true;
                 PlayerPrefs.SetInt("Good", PlayerPrefs.GetInt("Good", 0) + 1);
                 Timeline.instance.AccuracyCount += 0.75f;
+                Timeline.instance.HitSoundEffect.Play();
             }
             else if (transform.localScale.x > 0.5f && transform.localScale.x <= 0.65f) //Perfect
             {
@@ -96,6 +99,7 @@ public class Slider_Shrinker : MonoBehaviour
                 perfectHit = true;
                 PlayerPrefs.SetInt("Perfect", PlayerPrefs.GetInt("Perfect", 0) + 1);
                 Timeline.instance.AccuracyCount += 1f;
+                Timeline.instance.HitSoundEffect.Play();
             }
             else if (transform.localScale.x > 0.3f && transform.localScale.x <= 0.5f)
             {
