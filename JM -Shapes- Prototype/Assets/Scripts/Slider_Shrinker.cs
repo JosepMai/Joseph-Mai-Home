@@ -18,7 +18,7 @@ public class Slider_Shrinker : MonoBehaviour
     public bool goodHit;
     public bool perfectHit;
 
-
+    public int noteNumber;
     public Timeline tl;
 
     //PlayerInputManager playerInputManager;
@@ -26,8 +26,13 @@ public class Slider_Shrinker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //playerInputManager = FindObjectOfType<PlayerInputManager>();
         tl = FindAnyObjectByType<Timeline>();
+      //  if(Input.GetKey(KeyCode.C))
+        //{
+            //tl.reachedEnd = true;
+        //}
         originalScale = transform.localScale; //Store the original scale
         Invoke("ShrinkCountdown", 0.15f);
     }
@@ -36,6 +41,10 @@ public class Slider_Shrinker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if(Input.GetKeyUp(KeyCode.C))
+      //  {
+           // tl.reachedEnd = false;
+       // }
         CheckingSliderShrink();
     }
 
@@ -63,6 +72,7 @@ public class Slider_Shrinker : MonoBehaviour
     }
     public void CheckingSliderShrink()
     {
+
         if (Input.GetKeyDown(KeyCode.C) && tl.notes[tl.hitNote].name == gameObject.transform.root.name && tl.reachedEnd == false)
         {
             if (transform.localScale.x > 0.75f && transform.localScale.x <= 1f) //Way too early

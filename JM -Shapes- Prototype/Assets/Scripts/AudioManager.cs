@@ -22,4 +22,16 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = soundToPlay;
         audioSource.Play();
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+           audioSource.Pause();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            audioSource.UnPause();
+        }
+    }
 }
+
