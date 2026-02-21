@@ -34,6 +34,8 @@ public class Button_Manager : MonoBehaviour
     public bool SecondClick = false;
     public string HighlightedLevel;
     public bool ClickedStartButton;
+    public AudioSource audioSrc;
+    public AudioClip[] PreviewSongs;
     public void Start()
     {
     }
@@ -45,6 +47,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "Canon")
         {
+            audioSrc.clip = PreviewSongs[0];
+            audioSrc.Play();
             CanonImage.SetActive(true);
             CanonScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -78,6 +82,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "Devil")
         {
+            audioSrc.clip = PreviewSongs[1];
+            audioSrc.Play();
             DevilImage.SetActive(true);
             DevilScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -111,6 +117,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "CandyLand")
         {
+            audioSrc.clip = PreviewSongs[2];
+            audioSrc.Play();
             CandyImage.SetActive(true);
             CandyScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -143,6 +151,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "CD")
         {
+            audioSrc.clip = PreviewSongs[3];
+            audioSrc.Play();
             CDImage.SetActive(true);
             CDScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -175,6 +185,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "WindBreaker")
         {
+            audioSrc.clip = PreviewSongs[5];
+            audioSrc.Play();
             WindBreakerImage.SetActive(true);
             WindBreakerScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -207,6 +219,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "HUGS")
         {
+            audioSrc.clip = PreviewSongs[9];
+            audioSrc.Play();
             HUGSImage.SetActive(true);
             HUGSScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -239,6 +253,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "ThousandNights")
         {
+            audioSrc.clip = PreviewSongs[10];
+            audioSrc.Play();
             ThousandNightsImage.SetActive(true);
             ONETScript.SetActive(true);
             CurrentImage.SetActive(false);
@@ -271,6 +287,8 @@ public class Button_Manager : MonoBehaviour
     {
         if (HighlightedLevel != "Flamewall")
         {
+            audioSrc.clip = PreviewSongs[11];
+            audioSrc.Play();
             FlameWallImage.SetActive(true);
             FlameWallScript.SetActive(true);
             CurrentImage.SetActive(false);
