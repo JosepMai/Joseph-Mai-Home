@@ -7,12 +7,6 @@ public class TesTest : MonoBehaviour
 {
     public GameObject PlayButton;
     public GameObject Canvas;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     public float riseSpeed = 0.5f;
 
     void Update()

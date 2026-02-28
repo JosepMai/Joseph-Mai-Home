@@ -52,7 +52,6 @@ public class SliderMove : MonoBehaviour
         tl.hitNote++; //Increases hitNote/Currentnote by 1
         tl.reachedEnd = true;//Sets reachedEnd to true
         tl.holdingSlider = false;
-        //tl.holdingSlider = false;
         Destroy(transform.root.gameObject);//Destroys the root of a gameObject
     }
 
@@ -86,8 +85,6 @@ public class SliderMove : MonoBehaviour
             FindAnyObjectByType<BeatManager>().score += 1;
             AddPoints();
             ExitSlider();
-            Debug.Log("Reached final point");
-         
         }
     }
 

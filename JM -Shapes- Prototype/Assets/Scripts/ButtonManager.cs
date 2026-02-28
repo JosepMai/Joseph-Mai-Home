@@ -36,13 +36,6 @@ public class Button_Manager : MonoBehaviour
     public bool ClickedStartButton;
     public AudioSource audioSrc;
     public AudioClip[] PreviewSongs;
-    public void Start()
-    {
-    }
-    public void Update()
-    {
-
-    }
     public void Canon()
     {
         if (HighlightedLevel != "Canon")
@@ -347,5 +340,9 @@ public class Button_Manager : MonoBehaviour
     public void Menu_Screen()
     {
         SceneManager.LoadScene("Menu_Scene");
+    }
+    public void Credits()
+    {
+        SceneManager.LoadScene("CREDITS");
     }
 }

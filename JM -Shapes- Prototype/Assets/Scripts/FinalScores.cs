@@ -11,11 +11,21 @@ public class FinalScores : MonoBehaviour
     public TextMeshProUGUI BadText;
     public TextMeshProUGUI MissText;
     public TextMeshProUGUI GradeText;
+    public TextMeshProUGUI BestScore;
 
+    public bool isHighscore;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PlayerPrefs.GetInt("CurrentSong", 0) = SongID;
+        //PlayerPrefs.GetInt("CurrentSong", 0) + "HS" = SongIDHS;
+        if (PlayerPrefs.GetInt("FinalScore", 0 ) > PlayerPrefs.GetInt(PlayerPrefs.GetInt("CurrentSong", 0) + "HS", 0))
+        {
+            PlayerPrefs.SetInt(PlayerPrefs.GetInt("CurrentSong", 0) + "HS", PlayerPrefs.GetInt("FinalScore", 0)); // This updates the high score
+            BestScore.text = "Best Score:" + PlayerPrefs.GetInt(PlayerPrefs.GetInt("CurrentSong", 0) + "HS", 0);
+        }
+        //Displaying Best Score uses PlayerPrefs.GetInt(PlayerPrefs.GetInt("CurrentSong", 0) + "HS", 0))
+        //Display current score uses PlayerPrefs.GetInt("FinalScore", 0);
     }
 
     // Update is called once per frame

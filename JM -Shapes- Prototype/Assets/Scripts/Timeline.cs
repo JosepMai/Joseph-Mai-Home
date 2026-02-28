@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Timeline : MonoBehaviour
 {
     public static Timeline instance;
-    //IN PROGRESS
     public GameObject missText;
     public GameObject Beat1;
     public GameObject Beat2;
@@ -208,7 +207,6 @@ public class Timeline : MonoBehaviour
 
         if (notes[hitNote].GetComponentInChildren<SliderMove>() != null)
         {
-            Debug.Log(notes[hitNote].gameObject);
             notes[hitNote].GetComponentInChildren<SliderMove>().ExitSliderImproper();
         }
 
@@ -270,7 +268,7 @@ public class Timeline : MonoBehaviour
         {
             PlayerPrefs.SetInt("GRADE", 1);
         }
-            if (Input.GetKeyUp(KeyCode.C) && holdingSlider/*&& tl.notes[tl.hitNote].name == gameObject.name*/)//If it gets key 3 and holding Slider = true
+            if (Input.GetKeyUp(KeyCode.C) && holdingSlider)//If it gets key 3 and holding Slider = true
         {
             reachedEnd = false;
         }
@@ -279,15 +277,10 @@ public class Timeline : MonoBehaviour
             reachedEnd = false;
         }
         HitNote();
-        //Debug.Log("testA");
         if (currentNote >= noteTimings.Length)
             return;
-        //Debug.Log("testB");
-        Debug.Log(noteTimings[currentNote] - 1.15f);
-        Debug.Log(Time.time);
         if (Time.timeSinceLevelLoad >= noteTimings[currentNote] - 1.15 && Time.timeSinceLevelLoad <= noteTimings[currentNote] - 1.15 + 0.15f) // When its the right timing, we need to spawn the note
         {
-            Debug.Log("Test1");
             SpawnNext();
    
         }

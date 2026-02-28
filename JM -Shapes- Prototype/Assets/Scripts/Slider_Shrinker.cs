@@ -21,18 +21,10 @@ public class Slider_Shrinker : MonoBehaviour
     public int noteNumber;
     public Timeline tl;
 
-    //PlayerInputManager playerInputManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        
-        //playerInputManager = FindObjectOfType<PlayerInputManager>();
         tl = FindAnyObjectByType<Timeline>();
-      //  if(Input.GetKey(KeyCode.C))
-        //{
-            //tl.reachedEnd = true;
-        //}
         originalScale = transform.localScale; //Store the original scale
         Invoke("ShrinkCountdown", 0.15f);
     }
@@ -41,10 +33,6 @@ public class Slider_Shrinker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Input.GetKeyUp(KeyCode.C))
-      //  {
-           // tl.reachedEnd = false;
-       // }
         CheckingSliderShrink();
     }
 
